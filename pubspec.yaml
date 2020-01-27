@@ -1,0 +1,47 @@
+# App Name
+name: foodifi
+
+# App Description
+description: A Food Wallpapers app.
+
+# App Version for both Android & iOS
+version: 1.0.0+1
+
+# Dart SDK Version
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+# App Packages from pub.dev for both debug & release mode & for both Android & iOS
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^0.1.2
+  dio: ^3.0.8
+  sqflite: ^1.2.0
+  connectivity: ^0.4.6+2
+  rxdart: ^0.22.6
+  flutter_spinkit: ^4.1.1+1
+  shared_preferences: ^0.5.6+1
+  cached_network_image: ^2.0.0
+  package_info: ^0.4.0+13
+
+# App Packages from pub.dev only for debug mode for both Android & iOS
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  http:
+
+flutter:
+  uses-material-design: true
+  # Assets
+  # assets:
+  # - assets/
+  # Fonts
+  # fonts:
+  #   - family: google
+  #     fonts:
+  #       - asset: assets/fonts/Product-Sans-Regular.ttf
+  #       - asset: assets/fonts/Product-Sans-Bold.ttf
+  #         weight: 500
+  #       - asset: assets/fonts/Product-Sans-Bold-Italic.ttf
+  #         style: italic

@@ -33,6 +33,7 @@ class _ConfigPageState extends State<ConfigPage> {
           ),
           disabledColor: Colors.grey,
           primaryTextTheme: Theme.of(context).textTheme.apply(
+                fontFamily: 'foodifi',
                 bodyColor: FiColors.textColor,
                 displayColor: FiColors.textColor,
               ),

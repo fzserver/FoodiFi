@@ -32,14 +32,14 @@ version: 1.0.0+1
 
 # Running a project
 
-```shell
+```console
 git clone https://github.com/FrazileDevelopers/FoodiFi
 flutter run
 ```
 
 # Build a release apk
 
-```shell
+```console
 git clone https://github.com/FrazileDevelopers/FoodiFi
 flutter build apk --release
 ```
@@ -49,7 +49,5 @@ flutter build apk --release
 
 # Copyright Claim
 
-```copyright
 Copyright © 2020, [FoodiFi](https://github.com/FrazileDevelopers/FoodiFi).
 Released under the [MIT License](LICENSE).
-```

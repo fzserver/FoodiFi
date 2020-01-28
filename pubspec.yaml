@@ -29,19 +29,20 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_driver:
+    sdk: flutter
   http:
+  test: any
 
 flutter:
   uses-material-design: true
   # Assets
-  # assets:
-  # - assets/
+  assets:
+    - assets/
+    - assets/images/
+
   # Fonts
-  # fonts:
-  #   - family: google
-  #     fonts:
-  #       - asset: assets/fonts/Product-Sans-Regular.ttf
-  #       - asset: assets/fonts/Product-Sans-Bold.ttf
-  #         weight: 500
-  #       - asset: assets/fonts/Product-Sans-Bold-Italic.ttf
-  #         style: italic
+  fonts:
+    - family: foodifi
+      fonts:
+        - asset: assets/fonts/Audiowide-Regular.ttf

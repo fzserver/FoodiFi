@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 class FiColors {
   //* Light Theme
   static const Color appColor = Color(0xFF6ADF26);
-  static const Color canvasColor = Color(0xFF0d0d0d);
+  static const Color canvasColor = Color(0xFFFFFFFF);
   static const Color textColor = Color(0xFFFFFFFF);
   static const Color iconColor = Color(0xFFFFFFFF);
+  static const Color bgColor = Color(0xFF6ADF26);
 
   //* Dark Theme
   static const Color darkAppColor = Color(0xFF2C3E50);

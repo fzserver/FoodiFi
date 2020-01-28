@@ -1,5 +1,7 @@
 # FoodiFi
 
+![GitHub repo size](https://img.shields.io/github/repo-size/FrazileDevelopers/FoodiFi) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/FrazileDevelopers/FoodiFi) ![GitHub language count](https://img.shields.io/github/languages/count/FrazileDevelopers/FoodiFi) ![GitHub top language](https://img.shields.io/github/languages/top/FrazileDevelopers/FoodiFi)
+
 FoodiFi a Food delivery app.
 
 # Flutter Packages used by the app
@@ -41,6 +43,9 @@ flutter run
 git clone https://github.com/FrazileDevelopers/FoodiFi
 flutter build apk --release
 ```
+
+<!-- # ☕️ Donate
+<a href="https://www.buymeacoffee.com/Frazile" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a> -->
 
 # Copyright Claim
 

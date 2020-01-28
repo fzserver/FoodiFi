@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-// import 'package:foodifi/constants/frazile.dart';
-// import 'package:foodifi/db/DBManager.dart';
 import 'package:foodifi/pages/config/configPage.dart';
 import 'package:foodifi/services/connectionStatus.dart';
-// import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   ConnectionStatus connectionStatus = ConnectionStatus.getInstance();

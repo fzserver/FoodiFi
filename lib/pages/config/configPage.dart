@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodifi/constants/FoodiFi.dart';
 import 'package:foodifi/constants/colors.dart';
-import 'package:foodifi/pages/home/homePage.dart';
+import 'package:foodifi/pages/onboarding/onboarding.dart';
 
 class ConfigPage extends StatefulWidget {
   @override
@@ -39,7 +39,7 @@ class _ConfigPageState extends State<ConfigPage> {
               ),
           brightness: Brightness.light,
         ),
-        home: HomePage(),
+        home: Onboarding(),
         routes: {},
       );
 }

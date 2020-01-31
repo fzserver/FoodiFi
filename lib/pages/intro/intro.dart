@@ -10,7 +10,7 @@ class Intro extends StatefulWidget {
 
 class _IntroState extends State<Intro> {
   void _onIntroEnd(context) {
-    Navigator.of(context).push(
+    Navigator.of(context).pushReplacement(
       MaterialPageRoute(builder: (_) => HomePage()),
     );
   }

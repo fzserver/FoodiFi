@@ -8,10 +8,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) => Scaffold(
-        body: Container(
-          child: Center(
-            child: Text('Foodifi'),
-          ),
+        body: Center(
+          child: Text('data'),
         ),
       );
 }

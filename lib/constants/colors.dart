@@ -37,4 +37,8 @@ class FiColors {
   //       0.0,
   //       0.5,
   //     ];
+
+  //* Dot Colors
+  static const Color inActiveDotColor = Color(0x5EFFFFFF);
+  static const Color activeDotColor = Color(0xFFFFFFFF);
 }

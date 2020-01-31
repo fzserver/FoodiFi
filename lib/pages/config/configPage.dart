@@ -27,7 +27,8 @@ class _ConfigPageState extends State<ConfigPage> {
         // debugShowMaterialGrid: true,
         // showSemanticsDebugger: true,
         // showPerformanceOverlay: true,
-        
+        // checkerboardOffscreenLayers: true,
+        // checkerboardRasterCacheImages: true,
         theme: ThemeData(
           fontFamily: FoodiFi.googleFamily,
           primarySwatch: Colors.red,

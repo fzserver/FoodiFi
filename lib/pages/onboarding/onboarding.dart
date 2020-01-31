@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodifi/constants/FoodiFi.dart';
-import 'package:foodifi/constants/colors.dart';
-import 'package:foodifi/pages/home/homePage.dart';
+import 'package:foodifi/pages/intro/intro.dart';
 import 'package:splashscreen/splashscreen.dart';
 
 class Onboarding extends StatefulWidget {
@@ -13,12 +11,12 @@ class _OnboardingState extends State<Onboarding> {
   @override
   Widget build(BuildContext context) => SplashScreen(
         seconds: 4,
-        navigateAfterSeconds: HomePage(),
+        navigateAfterSeconds: Intro(),
         title: Text(
-          "welcome to FoodiFi",
+          "Welcome to FoodiFi",
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: 30,
+            fontSize: 30.0,
           ),
           textAlign: TextAlign.center,
         ),

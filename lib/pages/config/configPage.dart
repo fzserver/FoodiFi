@@ -23,6 +23,11 @@ class _ConfigPageState extends State<ConfigPage> {
   Widget build(BuildContext context) => MaterialApp(
         title: FoodiFi.appName,
         debugShowCheckedModeBanner: false,
+        // debugShowMaterialGrid: true,
+        // debugShowMaterialGrid: true,
+        // showSemanticsDebugger: true,
+        // showPerformanceOverlay: true,
+        
         theme: ThemeData(
           fontFamily: FoodiFi.googleFamily,
           primarySwatch: Colors.red,

@@ -6,7 +6,7 @@ FoodiFi a Food delivery app.
 
 # Flutter Packages used by the app
 
-```yaml
+````yaml
 cupertino_icons: ^0.1.2
 dio: ^3.0.8
 sqflite: ^1.2.0
@@ -16,13 +16,19 @@ flutter_spinkit: ^4.1.1+1
 shared_preferences: ^0.5.6+1
 cached_network_image: ^2.0.0
 package_info: ^0.4.0+13
+splashscreen: ^1.2.0
+introduction_screen: ^1.0.7
+flutter_custom_clippers: ^1.1.0
+polygon_clipper: ^1.0.2
+quick_actions: ^0.4.0+1
+wave: ^0.0.8
 ```
 
 # Dart version
 
 ```yaml
 sdk: ">=2.1.0 <3.0.0"
-```
+````
 
 # App Version & Build Version for Android & iOS
 
@@ -43,6 +49,12 @@ flutter run
 git clone https://github.com/FrazileDevelopers/FoodiFi
 flutter build apk --release
 ```
+
+# Screenshots
+
+## Login Screen
+
+![Alt text](assets/sc/screenshots/login.png "Optional title")
 
 <!-- # ☕️ Donate
 <a href="https://www.buymeacoffee.com/Frazile" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a> -->

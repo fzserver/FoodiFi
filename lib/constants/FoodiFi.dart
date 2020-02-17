@@ -24,5 +24,6 @@ class FoodiFi {
   //* Sizes
 
   //* Routes
-
+  static const String login = '/login';
+  static const String welcome = '/welcome';
 }

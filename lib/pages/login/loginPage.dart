@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodifi/constants/FoodiFi.dart';
 import 'package:foodifi/constants/colors.dart';
 import 'package:wave/config.dart';
 import 'package:wave/wave.dart';
@@ -139,7 +140,8 @@ class Login extends StatelessWidget {
                           vertical: 16.0,
                         ),
                         color: Colors.greenAccent,
-                        onPressed: () {},
+                        onPressed: () =>
+                            Navigator.pushNamed(context, FoodiFi.welcome),
                         elevation: 11,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(
@@ -231,7 +233,8 @@ class Login extends StatelessWidget {
                             "Sign up",
                           ),
                           textColor: FiColors.bgColor,
-                          onPressed: () {},
+                          onPressed: () =>
+                              Navigator.pushNamed(context, FoodiFi.welcome),
                         )
                       ],
                     )

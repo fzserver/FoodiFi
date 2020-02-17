@@ -24,7 +24,6 @@ class _ConfigPageState extends State<ConfigPage> {
         title: FoodiFi.appName,
         debugShowCheckedModeBanner: false,
         // debugShowMaterialGrid: true,
-        // debugShowMaterialGrid: true,
         // showSemanticsDebugger: true,
         // showPerformanceOverlay: true,
         // checkerboardOffscreenLayers: true,

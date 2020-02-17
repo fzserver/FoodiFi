@@ -54,7 +54,7 @@ flutter build apk --release
 
 ## Login Screen
 
-![Alt text](assets/sc/screenshots/login.png "Optional title")
+![Alt text](assets/screenshots/login.png "Optional title")
 
 <!-- # ☕️ Donate
 <a href="https://www.buymeacoffee.com/Frazile" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a> -->

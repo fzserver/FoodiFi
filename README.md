@@ -54,7 +54,7 @@ flutter build apk --release
 
 ## Login Screen
 
-<img src="assets/screenshots/login.png" height="100em" />
+<img src="assets/screenshots/login.png" height="100px" />
 
 <!-- # ☕️ Donate
 <a href="https://www.buymeacoffee.com/Frazile" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a> -->

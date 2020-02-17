@@ -3,6 +3,7 @@ import 'package:foodifi/constants/FoodiFi.dart';
 import 'package:foodifi/constants/colors.dart';
 import 'package:foodifi/pages/home/homePage.dart';
 import 'package:foodifi/pages/onboarding/onboarding.dart';
+import 'package:foodifi/pages/phone/phone.dart';
 import 'package:foodifi/pages/welcome/welcome.dart';
 
 class ConfigPage extends StatefulWidget {
@@ -50,6 +51,7 @@ class _ConfigPageState extends State<ConfigPage> {
         routes: {
           FoodiFi.login: (BuildContext context) => HomePage(),
           FoodiFi.welcome: (BuildContext context) => Welcome(),
+          FoodiFi.phone: (BuildContext context) => Phone(),
         },
       );
 }

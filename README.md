@@ -60,6 +60,10 @@ flutter build apk --release
 
 <img src="assets/screenshots/welcome.png" width="200px" />
 
+## Phone OTP Screen
+
+<img src="assets/screenshots/otp.png" width="200px" />
+
 <!-- # ☕️ Donate
 <a href="https://www.buymeacoffee.com/Frazile" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a> -->
 

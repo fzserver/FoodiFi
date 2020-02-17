@@ -26,4 +26,5 @@ class FoodiFi {
   //* Routes
   static const String login = '/login';
   static const String welcome = '/welcome';
+  static const String phone = '/phone';
 }

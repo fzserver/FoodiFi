@@ -188,7 +188,7 @@ class _WelcomeState extends State<Welcome> {
                           ),
                           color: Colors.greenAccent,
                           onPressed: () =>
-                              Navigator.pushNamed(context, FoodiFi.welcome),
+                              Navigator.pushNamed(context, FoodiFi.phone),
                           elevation: 11,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(
@@ -198,7 +198,7 @@ class _WelcomeState extends State<Welcome> {
                             ),
                           ),
                           child: Text(
-                            "Sign UP",
+                            "Sign up",
                             style: TextStyle(
                               color: FiColors.textColor,
                             ),

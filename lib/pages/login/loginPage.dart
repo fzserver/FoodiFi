@@ -42,7 +42,7 @@ class Login extends StatelessWidget {
                       "Login",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: Colors.white70,
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 28.0,
                       ),

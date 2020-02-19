@@ -6,7 +6,7 @@ FoodiFi a Food delivery app.
 
 # Flutter Packages used by the app
 
-````yaml
+```yaml
 cupertino_icons: ^0.1.2
 dio: ^3.0.8
 sqflite: ^1.2.0
@@ -22,13 +22,17 @@ flutter_custom_clippers: ^1.1.0
 polygon_clipper: ^1.0.2
 quick_actions: ^0.4.0+1
 wave: ^0.0.8
+firebase_performance: ^0.3.1+5
+cloud_firestore: ^0.13.2+3
+firebase_auth: ^0.15.4
+firebase_analytics: ^5.0.11
 ```
 
 # Dart version
 
 ```yaml
-sdk: ">=2.1.0 <3.0.0"
-````
+sdk: ">=2.2.0 <3.0.0"
+```
 
 # App Version & Build Version for Android & iOS
 

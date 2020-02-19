@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:foodifi/constants/FoodiFi.dart';
 import 'package:foodifi/constants/colors.dart';
-import 'package:foodifi/pages/home/homePage.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
 class Intro extends StatefulWidget {
@@ -10,9 +10,7 @@ class Intro extends StatefulWidget {
 
 class _IntroState extends State<Intro> {
   void _onIntroEnd(context) {
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (_) => HomePage()),
-    );
+    Navigator.of(context).pushReplacementNamed(FoodiFi.login);
   }
 
   @override

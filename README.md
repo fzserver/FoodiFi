@@ -26,6 +26,7 @@ firebase_performance: ^0.3.1+5
 cloud_firestore: ^0.13.2+3
 firebase_auth: ^0.15.4
 firebase_analytics: ^5.0.11
+firebase_crashlytics: ^0.1.3
 ```
 
 # Dart version

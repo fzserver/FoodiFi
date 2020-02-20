@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:foodifi/constants/sharedPreferences.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class GoogleServices {
@@ -22,7 +23,9 @@ class GoogleServices {
       assert(await user.getIdToken() != null);
       final FirebaseUser currentUser = await _auth.currentUser();
       assert(user.uid == currentUser.uid);
-      print(user);
+      // print(user);
+      signOutGoogle();
+      LocalStorageService().saveToDisk('fireuser', user.email);
       return user;
     } on Exception catch (e) {
       print(e);

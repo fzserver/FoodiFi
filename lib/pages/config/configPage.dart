@@ -48,7 +48,7 @@ class _ConfigPageState extends State<ConfigPage> {
               ),
           brightness: Brightness.light,
         ),
-        initialRoute: FoodiFi.onboard,
+        initialRoute: FoodiFi.userhome,
         routes: {
           FoodiFi.onboard: (BuildContext context) => Onboarding(),
           FoodiFi.login: (BuildContext context) => HomePage(),

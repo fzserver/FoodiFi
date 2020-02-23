@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class UserHomePage extends StatefulWidget {
@@ -99,7 +100,7 @@ class _UserHomePageState extends State<UserHomePage> {
                 Container(
                   margin: const EdgeInsets.only(left: 20.0),
                   height: 180.0,
-                  width: MediaQuery.of(context).size.width - 40,
+                  width: MediaQuery.of(context).size.width,
                   child: Expanded(
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
@@ -109,7 +110,7 @@ class _UserHomePageState extends State<UserHomePage> {
                         padding: const EdgeInsets.only(
                           right: 15.0,
                         ),
-                        child: foodCard(photos[index]),
+                        child: food(photos[index]),
                       ),
                     ),
                   ),
@@ -134,7 +135,7 @@ class _UserHomePageState extends State<UserHomePage> {
                 Container(
                   margin: const EdgeInsets.only(left: 20.0),
                   height: 180.0,
-                  width: MediaQuery.of(context).size.width - 40,
+                  width: MediaQuery.of(context).size.width,
                   child: Expanded(
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
@@ -142,9 +143,10 @@ class _UserHomePageState extends State<UserHomePage> {
                       itemCount: photos.length,
                       itemBuilder: (context, index) => Container(
                         padding: const EdgeInsets.only(
-                          right: 15.0,
+                          right: 12.0,
+                          bottom: 13.0,
                         ),
-                        child: foodCard(photos[index]),
+                        child: meal(photos[index]),
                       ),
                     ),
                   ),
@@ -157,11 +159,6 @@ class _UserHomePageState extends State<UserHomePage> {
           showSelectedLabels: false,
           showUnselectedLabels: false,
           items: [
-            BottomNavigationBarItem(
-              title: Text(''),
-              icon: Icon(Icons.map, color: Colors.black),
-              activeIcon: Icon(Icons.map, color: Colors.red),
-            ),
             BottomNavigationBarItem(
               title: Text(''),
               icon: Icon(Icons.map, color: Colors.black),
@@ -179,18 +176,55 @@ class _UserHomePageState extends State<UserHomePage> {
       );
 }
 
-Widget foodCard(String name) => InkWell(
+Widget food(String name) => InkWell(
+      onTap: () {},
+      child: Container(
+        child: Container(
+          height: 100.0,
+          width: 130.0,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(
+              Radius.circular(10.0),
+            ),
+            color: Colors.black12,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Image.network(name, fit: BoxFit.cover),
+              Text('nfnwenf'),
+              Text('fnjwenf'),
+              Text('fejwnf'),
+            ],
+          ),
+        ),
+      ),
+    );
+
+Widget meal(String name) => InkWell(
       onTap: () {},
       child: Container(
         alignment: Alignment.center,
         child: Container(
-          height: 150.0,
-          width: 100.0,
+          height: 180.0,
+          width: 130.0,
           decoration: BoxDecoration(
-            image: DecorationImage(
-              image: NetworkImage(
-                name,
+            borderRadius: BorderRadius.circular(
+              14.0,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black87,
+                blurRadius: 5.0,
+                offset: Offset(2.0, 3.0),
               ),
+            ],
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(14.0),
+            child: CachedNetworkImage(
+              imageUrl: name,
               fit: BoxFit.cover,
             ),
           ),

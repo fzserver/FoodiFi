@@ -23,18 +23,6 @@ class _UserHomePageState extends State<UserHomePage> {
     'https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80'
   ];
 
-  // void previousImage() {
-  //   setState(() {
-  //     photoIndex = photoIndex > 0 ? photoIndex - 1 : 0;
-  //   });
-  // }
-
-  // void nextImage() {
-  //   setState(() {
-  //     photoIndex = photoIndex < photos.length - 1 ? photoIndex + 1 : photoIndex;
-  //   });
-  // }
-
   @override
   void initState() {
     super.initState();
@@ -82,13 +70,16 @@ class _UserHomePageState extends State<UserHomePage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 10.0,
+                    horizontal: 5.0,
                     vertical: 10.0,
                   ),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: <Widget>[
-                      Text('Most Popular'),
+                      Text(
+                        'Most Popular',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
                       Spacer(),
                       FlatButton(
                         onPressed: () {},
@@ -117,14 +108,17 @@ class _UserHomePageState extends State<UserHomePage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 10.0,
+                    horizontal: 5.0,
                     vertical: 10.0,
                   ),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     mainAxisSize: MainAxisSize.max,
                     children: <Widget>[
-                      Text('Meal Deals'),
-                      Spacer(),
+                      Text(
+                        'Meal Deals',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
                       FlatButton(
                         onPressed: () {},
                         child: Text('View All'),
@@ -134,7 +128,7 @@ class _UserHomePageState extends State<UserHomePage> {
                 ),
                 Container(
                   margin: const EdgeInsets.only(left: 20.0),
-                  height: 180.0,
+                  height: 220.0,
                   width: MediaQuery.of(context).size.width,
                   child: Expanded(
                     child: ListView.builder(
@@ -143,7 +137,7 @@ class _UserHomePageState extends State<UserHomePage> {
                       itemCount: photos.length,
                       itemBuilder: (context, index) => Container(
                         padding: const EdgeInsets.only(
-                          right: 12.0,
+                          right: 14.0,
                           bottom: 13.0,
                         ),
                         child: meal(photos[index]),
@@ -180,22 +174,71 @@ Widget food(String name) => InkWell(
       onTap: () {},
       child: Container(
         child: Container(
-          height: 100.0,
+          // height: 100.0,
           width: 130.0,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(
               Radius.circular(10.0),
             ),
-            color: Colors.black12,
+            color: Colors.pinkAccent.withOpacity(.2),
           ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              Image.network(name, fit: BoxFit.cover),
-              Text('nfnwenf'),
-              Text('fnjwenf'),
-              Text('fejwnf'),
+              Container(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(5.0),
+                    topRight: Radius.circular(5.0),
+                  ),
+                  child: CachedNetworkImage(
+                    imageUrl: name,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 5.0,
+                  top: 5.0,
+                  bottom: 5.0,
+                ),
+                child: Text(
+                  'Mc Donalds',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18.0,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 5.0,
+                  top: 5.0,
+                  bottom: 5.0,
+                ),
+                child: Text(
+                  'Friends Colony',
+                  style: TextStyle(
+                    color: Colors.grey,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 5.0,
+                  top: 5.0,
+                  bottom: 5.0,
+                ),
+                child: Text(
+                  'Delhi',
+                  style: TextStyle(
+                    color: Colors.grey,
+                  ),
+                ),
+              ),
             ],
           ),
         ),
@@ -206,28 +249,74 @@ Widget meal(String name) => InkWell(
       onTap: () {},
       child: Container(
         alignment: Alignment.center,
-        child: Container(
-          height: 180.0,
-          width: 130.0,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(
-              14.0,
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black87,
-                blurRadius: 5.0,
-                offset: Offset(2.0, 3.0),
+        child: Stack(
+          children: <Widget>[
+            Container(
+              height: 220.0,
+              width: 130.0,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(
+                  5.0,
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black38,
+                    blurRadius: 5.0,
+                    offset: Offset(2.0, 3.0),
+                  ),
+                ],
               ),
-            ],
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(14.0),
-            child: CachedNetworkImage(
-              imageUrl: name,
-              fit: BoxFit.cover,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(5.0),
+                child: CachedNetworkImage(
+                  imageUrl: name,
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
-          ),
+            Positioned(
+              bottom: 0.0,
+              left: 12.0,
+              child: Container(
+                height: 55.0,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Container(
+                      width: 30.0,
+                      height: 3.0,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                            colors: [
+                              const Color(0xFFFF3399),
+                              const Color(0xFFFF0000)
+                            ],
+                            tileMode: TileMode.clamp,
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            stops: [0.0, 1.0]),
+                        borderRadius: BorderRadius.circular(14.0),
+                      ),
+                    ),
+                    Text(
+                      'Positioned',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      '34 Places',
+                      style: TextStyle(
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -250,16 +339,28 @@ Widget featured(List<String> photos, int index) => Stack(
           color: Colors.black.withOpacity(.1),
         ),
         Positioned(
-          bottom: 0.0,
+          bottom: 5.0,
+          left: 8.0,
           child: Row(
             children: <Widget>[
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    'Vegetables',
+                    'Thai Style',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 25.0,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5.0,
+                  ),
+                  Text(
+                    '12 Places',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 12.0,
                     ),
                   ),
                 ],

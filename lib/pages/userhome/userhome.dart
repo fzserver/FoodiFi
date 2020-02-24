@@ -145,6 +145,47 @@ class _UserHomePageState extends State<UserHomePage> {
                     ),
                   ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 5.0,
+                    vertical: 10.0,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisSize: MainAxisSize.max,
+                    children: <Widget>[
+                      Text(
+                        'Popular Restaurants',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      FlatButton(
+                        onPressed: () {},
+                        child: Text('See All'),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(left: 20.0),
+                  height: 130.0,
+                  width: MediaQuery.of(context).size.width,
+                  child: Expanded(
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      physics: BouncingScrollPhysics(),
+                      itemCount: photos.length,
+                      itemBuilder: (context, index) => Container(
+                        padding: const EdgeInsets.only(
+                          right: 14.0,
+                          bottom: 13.0,
+                        ),
+                        child: rest(photos[index]),
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
@@ -155,11 +196,11 @@ class _UserHomePageState extends State<UserHomePage> {
           items: [
             BottomNavigationBarItem(
               title: Text(''),
-              icon: Icon(Icons.map, color: Colors.black),
+              icon: Icon(Icons.date_range, color: Colors.black),
             ),
             BottomNavigationBarItem(
               title: Text(''),
-              icon: Icon(Icons.favorite_border, color: Colors.black),
+              icon: Icon(Icons.map, color: Colors.black),
             ),
             BottomNavigationBarItem(
               title: Text(''),
@@ -169,6 +210,36 @@ class _UserHomePageState extends State<UserHomePage> {
         ),
       );
 }
+
+Widget rest(String name) => InkWell(
+      onTap: () {},
+      child: Container(
+        alignment: Alignment.center,
+        child: Container(
+          height: 120.0,
+          width: 120.0,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(
+              5.0,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black38,
+                blurRadius: 5.0,
+                offset: Offset(2.0, 3.0),
+              ),
+            ],
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(5.0),
+            child: CachedNetworkImage(
+              imageUrl: name,
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+      ),
+    );
 
 Widget food(String name) => InkWell(
       onTap: () {},

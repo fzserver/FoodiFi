@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:foodifi/constants/FoodiFi.dart';
 
 class UserHomePage extends StatefulWidget {
   @override
@@ -50,7 +51,17 @@ class _UserHomePageState extends State<UserHomePage> {
             'Sydney,AUS',
             style: TextStyle(color: Colors.black),
           ),
-          centerTitle: true,
+          actions: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(
+                right: 5.0,
+              ),
+              child: Icon(
+                Icons.filter_list,
+                color: Colors.black,
+              ),
+            ),
+          ],
           backgroundColor: Colors.white,
         ),
         body: SingleChildScrollView(
@@ -181,7 +192,7 @@ class _UserHomePageState extends State<UserHomePage> {
                           right: 14.0,
                           bottom: 13.0,
                         ),
-                        child: rest(photos[index]),
+                        child: rest(context, photos[index]),
                       ),
                     ),
                   ),
@@ -211,8 +222,8 @@ class _UserHomePageState extends State<UserHomePage> {
       );
 }
 
-Widget rest(String name) => InkWell(
-      onTap: () {},
+Widget rest(BuildContext context, String name) => InkWell(
+      onTap: () => Navigator.pushNamed(context, FoodiFi.restaurant),
       child: Container(
         alignment: Alignment.center,
         child: Container(
@@ -349,6 +360,17 @@ Widget meal(String name) => InkWell(
               bottom: 0.0,
               left: 12.0,
               child: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Colors.transparent,
+                      Colors.black.withOpacity(0.5),
+                    ],
+                    tileMode: TileMode.repeated,
+                  ),
+                ),
                 height: 55.0,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,

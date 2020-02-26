@@ -103,7 +103,7 @@ class _UserHomePageState extends State<UserHomePage> {
                   margin: const EdgeInsets.only(left: 20.0),
                   height: 180.0,
                   width: MediaQuery.of(context).size.width,
-                  child: Expanded(
+                  child: Container(
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       physics: BouncingScrollPhysics(),
@@ -141,7 +141,7 @@ class _UserHomePageState extends State<UserHomePage> {
                   margin: const EdgeInsets.only(left: 20.0),
                   height: 220.0,
                   width: MediaQuery.of(context).size.width,
-                  child: Expanded(
+                  child: Container(
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       physics: BouncingScrollPhysics(),
@@ -182,7 +182,7 @@ class _UserHomePageState extends State<UserHomePage> {
                   margin: const EdgeInsets.only(left: 20.0),
                   height: 130.0,
                   width: MediaQuery.of(context).size.width,
-                  child: Expanded(
+                  child: Container(
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       physics: BouncingScrollPhysics(),

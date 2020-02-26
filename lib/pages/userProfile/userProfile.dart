@@ -6,6 +6,15 @@ class UserProfile extends StatefulWidget {
 }
 
 class _UserProfileState extends State<UserProfile> {
+  List<String> accInfos = [
+    'Orders',
+    'Subcriptions',
+    'Manage Addresses',
+    'Payments',
+    'Help & Support',
+    'Logout'
+  ];
+
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
@@ -14,10 +23,10 @@ class _UserProfileState extends State<UserProfile> {
         body: Container(
           child: ListView.separated(
             itemBuilder: (BuildContext context, int index) => ListTile(
-              title: Text('12'),
+              title: Text(accInfos[index]),
             ),
             separatorBuilder: (BuildContext context, int i) => Divider(),
-            itemCount: 5,
+            itemCount: accInfos.length,
           ),
         ),
       );

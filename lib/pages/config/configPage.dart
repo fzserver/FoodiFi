@@ -6,6 +6,7 @@ import 'package:foodifi/pages/onboarding/onboarding.dart';
 import 'package:foodifi/pages/phone/phone.dart';
 import 'package:foodifi/pages/restaurantMenu/restaurantMenu.dart';
 import 'package:foodifi/pages/restaurantProfile/restProfile.dart';
+import 'package:foodifi/pages/userProfile/userProfile.dart';
 import 'package:foodifi/pages/userhome/userhome.dart';
 import 'package:foodifi/pages/welcome/welcome.dart';
 
@@ -50,7 +51,7 @@ class _ConfigPageState extends State<ConfigPage> {
               ),
           brightness: Brightness.light,
         ),
-        initialRoute: FoodiFi.userhome,
+        initialRoute: FoodiFi.userprofile,
         routes: {
           FoodiFi.onboard: (BuildContext context) => Onboarding(),
           FoodiFi.login: (BuildContext context) => HomePage(),
@@ -59,6 +60,7 @@ class _ConfigPageState extends State<ConfigPage> {
           FoodiFi.userhome: (BuildContext context) => UserHomePage(),
           FoodiFi.restaurant: (BuildContext context) => Restaurant(),
           FoodiFi.restaurantMenu: (BuildContext context) => RestaurantMenu(),
+          FoodiFi.userprofile: (BuildContext context) => UserProfile(),
         },
       );
 }

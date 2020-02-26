@@ -55,7 +55,7 @@ class _ConfigPageState extends State<ConfigPage> {
               ),
           brightness: Brightness.light,
         ),
-        initialRoute: FFRoutes.mainpage,
+        initialRoute: FFRoutes.onboard,
         routes: {
           FFRoutes.mainpage: (BuildContext context) => MainPage(),
           FFRoutes.onboard: (BuildContext context) => Onboarding(),

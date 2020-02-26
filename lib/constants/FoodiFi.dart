@@ -29,7 +29,8 @@ class FoodiFi {
   static const String login = '/login';
   static const String welcome = '/welcome';
   static const String phone = '/phone';
-  static const String userhome = '/userhome';
+  static const String userhome = '/home';
   static const String restaurant = '/restaurant';
   static const String restaurantMenu = '/restaurantmenu';
+  static const String userprofile = '/profile';
 }

@@ -23,20 +23,36 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
                   start: 60.0,
                   bottom: 17.0,
                 ),
-                background: CachedNetworkImage(
-                  imageUrl:
-                      'https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9',
-                  fit: BoxFit.cover,
+                background: Stack(
+                  children: <Widget>[
+                    Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            'https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9',
+                          ),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Colors.transparent,
+                            Colors.black.withOpacity(0.5),
+                          ],
+                          tileMode: TileMode.repeated,
+                        ),
+                      ),
+                    )
+                  ],
                 ),
               ),
             ),
-            SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (context, index) => ListTile(
-                  title: Text('Image $index'),
-                ),
-              ),
-            ),
+            
           ],
         ),
       );

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class Restaurant extends StatefulWidget {
@@ -8,31 +9,35 @@ class Restaurant extends StatefulWidget {
 class _RestaurantState extends State<Restaurant> {
   @override
   Widget build(BuildContext context) => Scaffold(
-        body: Container(
-          width: MediaQuery.of(context).size.width,
-          child: Column(
-            children: <Widget>[
-              Stack(
-                children: <Widget>[
-                  Image.network(
-                    'https://images.unsplash.com/photo-1488813857115-72630ec718ed?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
-                    fit: BoxFit.cover,
-                  ),
-                  Positioned(
-                    bottom: 2.0,
-                    child: Text(
-                      'Starbucks',
-                      style: TextStyle(
-                        fontSize: 24.0,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ],
+        body: CustomScrollView(
+          slivers: <Widget>[
+            SliverAppBar(
+              expandedHeight: 200.0,
+              floating: true,
+              pinned: true,
+              flexibleSpace: FlexibleSpaceBar(
+                title: Text(
+                  'Mc Donalds',
+                ),
+                titlePadding: EdgeInsetsDirectional.only(
+                  start: 60.0,
+                  bottom: 17.0,
+                ),
+                background: CachedNetworkImage(
+                  imageUrl:
+                      'https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9',
+                  fit: BoxFit.cover,
+                ),
               ),
-            ],
-          ),
+            ),
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) => ListTile(
+                  title: Text('Image $index'),
+                ),
+              ),
+            ),
+          ],
         ),
       );
 }

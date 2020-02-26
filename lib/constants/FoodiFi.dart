@@ -24,6 +24,7 @@ class FoodiFi {
   //* Sizes
 
   //* Routes
+  static const String mainpage = '/mainpage';
   static const String onboard = '/onboard';
   static const String login = '/login';
   static const String welcome = '/welcome';

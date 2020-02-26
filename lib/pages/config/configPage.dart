@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:foodifi/constants/FoodiFi.dart';
 import 'package:foodifi/constants/colors.dart';
 import 'package:foodifi/pages/home/homePage.dart';
+import 'package:foodifi/pages/userhome/mainpage.dart';
 import 'package:foodifi/pages/onboarding/onboarding.dart';
 import 'package:foodifi/pages/phone/phone.dart';
 import 'package:foodifi/pages/restaurantMenu/restaurantMenu.dart';
 import 'package:foodifi/pages/restaurantProfile/restProfile.dart';
 import 'package:foodifi/pages/userhome/userhome.dart';
 import 'package:foodifi/pages/welcome/welcome.dart';
+
+import '../../constants/FoodiFi.dart';
 
 class ConfigPage extends StatefulWidget {
   @override
@@ -50,8 +53,9 @@ class _ConfigPageState extends State<ConfigPage> {
               ),
           brightness: Brightness.light,
         ),
-        initialRoute: FoodiFi.userhome,
+        initialRoute: FoodiFi.mainpage,
         routes: {
+          FoodiFi.mainpage: (BuildContext context) => MainPage(),
           FoodiFi.onboard: (BuildContext context) => Onboarding(),
           FoodiFi.login: (BuildContext context) => HomePage(),
           FoodiFi.welcome: (BuildContext context) => Welcome(),

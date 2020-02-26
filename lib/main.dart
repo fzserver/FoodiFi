@@ -1,9 +1,17 @@
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+/*import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:foodifi/constants/sharedPreferences.dart';
 import 'package:foodifi/pages/config/configPage.dart';
-import 'package:foodifi/services/connectionStatus.dart';
+import 'package:foodifi/services/connectionStatus.dart';*/
+
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+import 'constants/sharedPreferences.dart';
+import 'pages/config/configPage.dart';
+import 'services/connectionStatus.dart';
 
 void main() {
   ConnectionStatus connectionStatus = ConnectionStatus.getInstance();

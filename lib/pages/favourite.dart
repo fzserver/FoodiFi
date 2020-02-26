@@ -3,15 +3,21 @@ import 'package:flutter/material.dart';
 
 import '../widgets/favouritewidget.dart';
 
-class Favourite extends StatelessWidget{
+class Favourite extends StatefulWidget {
+  @override
+  _FavouriteState createState() => _FavouriteState();
+}
+
+class _FavouriteState extends State<Favourite> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text(
+        title: Center(
+            child: Text(
           'Favourites',
-          style: TextStyle(color: Colors.black,fontStyle: FontStyle.normal),
+          style: TextStyle(color: Colors.black, fontStyle: FontStyle.normal),
         )),
         backgroundColor: Colors.white,
       ),
@@ -26,6 +32,4 @@ class Favourite extends StatelessWidget{
       ),
     );
   }
-
-
 }

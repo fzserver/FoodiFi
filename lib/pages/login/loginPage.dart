@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodifi/constants/FFRoutes.dart';
 import 'package:foodifi/constants/FoodiFi.dart';
 import 'package:foodifi/constants/colors.dart';
 import 'package:foodifi/firebase/google.dart';
@@ -160,7 +161,7 @@ class _LoginState extends State<Login> {
                       ),
                       color: Colors.greenAccent,
                       onPressed: () =>
-                          Navigator.pushNamed(context, FoodiFi.welcome),
+                          Navigator.pushNamed(context, FFRoutes.welcome),
                       elevation: 11,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(
@@ -237,7 +238,7 @@ class _LoginState extends State<Login> {
                               GoogleServices().signInWithGoogle().whenComplete(
                                     () => Navigator.pushNamed(
                                       context,
-                                      FoodiFi.userhome,
+                                      FFRoutes.userhome,
                                     ),
                                   ),
                         ),
@@ -259,7 +260,7 @@ class _LoginState extends State<Login> {
                         ),
                         textColor: FiColors.bgColor,
                         onPressed: () =>
-                            Navigator.pushNamed(context, FoodiFi.welcome),
+                            Navigator.pushNamed(context, FFRoutes.welcome),
                       )
                     ],
                   )

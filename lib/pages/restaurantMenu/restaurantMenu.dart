@@ -89,7 +89,7 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
                       ),),
                     ) ,
                   ),*/
-                    MaterialButton(onPressed: () {},child: Text('Order Food Online'),color: Colors.pink,textColor: Colors.white, minWidth: MediaQuery.of(context).size.width, height: 50.0),
+                    MaterialButton(onPressed: () {},child: Text('Order Food Online'),color: Colors.orange,textColor: Colors.white, minWidth: MediaQuery.of(context).size.width, height: 50.0),
                     SizedBox(
                         height: 80,
                         child: Center(

@@ -223,7 +223,7 @@ class _UserHomePageState extends State<UserHomePage> {
 }
 
 Widget rest(BuildContext context, String name) => InkWell(
-      onTap: () => Navigator.pushNamed(context, FoodiFi.restaurant),
+      onTap: () => Navigator.pushNamed(context, FoodiFi.restaurantMenu),
       child: Container(
         alignment: Alignment.center,
         child: Container(

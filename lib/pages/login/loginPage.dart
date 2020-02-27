@@ -253,7 +253,7 @@ class _LoginState extends State<Login> {
                                   SharedPreferences prefs =
                                       await SharedPreferences.getInstance();
                                   prefs.setString('fireuid', user.uid);
-                                  prefs.setString('name', user.displayName);
+                                  prefs.setString('firename', user.displayName);
                                   FoodiFi.name = user.displayName;
                                   FoodiFi.uid = user.uid;
                                   Navigator.of(context).pushNamedAndRemoveUntil(

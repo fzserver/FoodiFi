@@ -38,6 +38,7 @@ dependencies:
   google_sign_in: ^4.1.1
   url_launcher:
   flutter_rating_bar:
+  intl:
 
 # App Packages from pub.dev only for debug mode for both Android & iOS
 dev_dependencies:

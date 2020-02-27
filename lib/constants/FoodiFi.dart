@@ -3,6 +3,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 class FoodiFi {
   //* Names
   static const String appName = 'FoodiFi';
+  static String name;
+  static String uid;
 
   //* Service Caller Settings
 
@@ -23,14 +25,4 @@ class FoodiFi {
 
   //* Sizes
 
-  //* Routes
-  static const String mainpage = '/mainpage';
-  static const String onboard = '/onboard';
-  static const String login = '/login';
-  static const String welcome = '/welcome';
-  static const String phone = '/phone';
-  static const String userhome = '/home';
-  static const String restaurant = '/restaurant';
-  static const String restaurantMenu = '/restaurantmenu';
-  static const String userprofile = '/profile';
 }

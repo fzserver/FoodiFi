@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodifi/constants/FFRoutes.dart';
 import 'package:foodifi/constants/FoodiFi.dart';
 import 'package:foodifi/constants/colors.dart';
 import 'package:wave/config.dart';
@@ -184,7 +185,7 @@ class _PhoneState extends State<Phone> {
                           ),
                           color: Colors.greenAccent,
                           onPressed: () =>
-                              Navigator.pushNamed(context, FoodiFi.welcome),
+                              Navigator.pushNamed(context, FFRoutes.welcome),
                           elevation: 11,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(

@@ -24,8 +24,8 @@ class GoogleServices {
       final FirebaseUser currentUser = await _auth.currentUser();
       assert(user.uid == currentUser.uid);
       // print(user);
-      signOutGoogle();
-      LocalStorageService().saveToDisk('fireuser', user.email);
+      // signOutGoogle();
+      // LocalStorageService().saveToDisk('fireuser', user.email);
       return user;
     } on Exception catch (e) {
       print(e);

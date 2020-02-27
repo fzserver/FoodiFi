@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodifi/constants/FFRoutes.dart';
 import 'package:foodifi/constants/FoodiFi.dart';
 import 'package:foodifi/constants/colors.dart';
 import 'package:introduction_screen/introduction_screen.dart';
@@ -10,7 +11,7 @@ class Intro extends StatefulWidget {
 
 class _IntroState extends State<Intro> {
   void _onIntroEnd(context) {
-    Navigator.of(context).pushReplacementNamed(FoodiFi.login);
+    Navigator.of(context).pushReplacementNamed(FFRoutes.login);
   }
 
   @override

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:foodifi/constants/FFRoutes.dart';
 import 'package:foodifi/constants/FoodiFi.dart';
 import 'package:foodifi/constants/colors.dart';
+import 'package:foodifi/pages/favourite.dart';
 import 'package:foodifi/pages/home/homePage.dart';
 import 'package:foodifi/pages/userhome/mainpage.dart';
 import 'package:foodifi/pages/onboarding/onboarding.dart';
@@ -53,16 +55,16 @@ class _ConfigPageState extends State<ConfigPage> {
               ),
           brightness: Brightness.light,
         ),
-        initialRoute: FoodiFi.mainpage,
+        initialRoute: FFRoutes.onboard,
         routes: {
-          FoodiFi.mainpage: (BuildContext context) => MainPage(),
-          FoodiFi.onboard: (BuildContext context) => Onboarding(),
-          FoodiFi.login: (BuildContext context) => HomePage(),
-          FoodiFi.welcome: (BuildContext context) => Welcome(),
-          FoodiFi.phone: (BuildContext context) => Phone(),
-          FoodiFi.userhome: (BuildContext context) => UserHomePage(),
-          FoodiFi.restaurant: (BuildContext context) => Restaurant(),
-          FoodiFi.restaurantMenu: (BuildContext context) => RestaurantMenu(),
+          FFRoutes.mainpage: (BuildContext context) => MainPage(),
+          FFRoutes.onboard: (BuildContext context) => Onboarding(),
+          FFRoutes.login: (BuildContext context) => HomePage(),
+          FFRoutes.welcome: (BuildContext context) => Welcome(),
+          FFRoutes.phone: (BuildContext context) => Phone(),
+          FFRoutes.userhome: (BuildContext context) => UserHomePage(),
+          FFRoutes.restaurant: (BuildContext context) => Restaurant(),
+          FFRoutes.restaurantMenu: (BuildContext context) => RestaurantMenu(),
         },
       );
 }

@@ -1,7 +1,12 @@
+import 'dart:async';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:foodifi/constants/FFRoutes.dart';
 import 'package:foodifi/constants/FoodiFi.dart';
 import 'package:foodifi/constants/colors.dart';
 import 'package:foodifi/firebase/google.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wave/config.dart';
 import 'package:wave/wave.dart';
 
@@ -21,6 +26,11 @@ class _LoginState extends State<Login> {
     super.initState();
     // _email = TextEditingController(text: "");
     // _password = TextEditingController(text: "");
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   @override
@@ -160,7 +170,7 @@ class _LoginState extends State<Login> {
                       ),
                       color: Colors.greenAccent,
                       onPressed: () =>
-                          Navigator.pushNamed(context, FoodiFi.welcome),
+                          Navigator.pushNamed(context, FFRoutes.welcome),
                       elevation: 11,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(
@@ -233,13 +243,28 @@ class _LoginState extends State<Login> {
                               ),
                             ),
                           ),
-                          onPressed: () =>
-                              GoogleServices().signInWithGoogle().whenComplete(
-                                    () => Navigator.pushNamed(
-                                      context,
-                                      FoodiFi.userhome,
-                                    ),
-                                  ),
+                          onPressed: () async {
+                            // GoogleServices().signOutGoogle();
+                            GoogleServices().signInWithGoogle().then(
+                              (val) async {
+                                if (val != false) {
+                                  FirebaseUser user = val;
+                                  // print('Name = ' + user.displayName.toString());
+                                  SharedPreferences prefs =
+                                      await SharedPreferences.getInstance();
+                                  prefs.setString('fireuid', user.uid);
+                                  prefs.setString('name', user.displayName);
+                                  FoodiFi.name = user.displayName;
+                                  FoodiFi.uid = user.uid;
+                                  Navigator.of(context).pushNamedAndRemoveUntil(
+                                      FFRoutes.userhome,
+                                      (Route<dynamic> route) => false);
+                                } else {
+                                  print('Not Signed In');
+                                }
+                              },
+                            );
+                          },
                         ),
                       ),
                       SizedBox(
@@ -259,7 +284,7 @@ class _LoginState extends State<Login> {
                         ),
                         textColor: FiColors.bgColor,
                         onPressed: () =>
-                            Navigator.pushNamed(context, FoodiFi.welcome),
+                            Navigator.pushNamed(context, FFRoutes.welcome),
                       )
                     ],
                   )

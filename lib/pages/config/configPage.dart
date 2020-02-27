@@ -45,8 +45,8 @@ class _ConfigPageState extends State<ConfigPage> {
         create: (_) => UserRepository.instance(),
         child: Consumer<UserRepository>(
           builder: (_, user, __) => StreamProvider.value(
-            value:
-                user != null && user.user != null ? prefs.get('fireuid') : null,
+            value: null,
+            // user != null && user.user != null ? prefs.get('fireuid') : null,
             child: MaterialApp(
               title: FoodiFi.appName,
               debugShowCheckedModeBanner: false,
@@ -71,8 +71,8 @@ class _ConfigPageState extends State<ConfigPage> {
                     ),
                 brightness: Brightness.light,
               ),
-              initialRoute:
-                  user.loginSkipped ? FFRoutes.userhome : FFRoutes.login,
+              initialRoute: FFRoutes.userhome,
+              // user.loginSkipped ? FFRoutes.userhome : FFRoutes.login,
               routes: {
                 FFRoutes.mainpage: (BuildContext context) => MainPage(),
                 FFRoutes.onboard: (BuildContext context) => Onboarding(),
@@ -88,7 +88,6 @@ class _ConfigPageState extends State<ConfigPage> {
           ),
         ),
       );
-
 
   // checkUserLoggedIn() async {
   //   SharedPreferences prefs = await SharedPreferences.getInstance();

@@ -12,7 +12,7 @@ class MenuItem extends StatelessWidget {
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-            color: Color(0xFFD1DCFF),
+            color: Color(0xFFBFF7CF),
             blurRadius: 20.0, // has the effect of softening the shadow
             spreadRadius: 5.0, // has the effect of extending the shadow
           ),
@@ -32,17 +32,17 @@ class MenuItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Container(
-                  padding: EdgeInsets.all(8.0),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: menu.iconColor,
-                  ),
-                  child: Icon(
-                    menu.icon,
-                    color: Colors.white,
-                  ),
-                ),
+                // Container(
+                //   padding: EdgeInsets.all(8.0),
+                //   decoration: BoxDecoration(
+                //     shape: BoxShape.circle,
+                //     color: menu.iconColor,
+                //   ),
+                //   child: Icon(
+                //     menu.icon,
+                //     color: Colors.white,
+                //   ),
+                // ),
                 Container(
                   margin: EdgeInsets.only(left: 15.0),
                   child: Column(
@@ -70,10 +70,23 @@ class MenuItem extends StatelessWidget {
                 )
               ],
             ),
-            Icon(
-              Icons.chevron_right,
-              color: profile_item_color,
-            )
+            // Icon(
+            //   Icons.chevron_right,
+            //   color: profile_item_color,
+            // )
+            MaterialButton(
+              onPressed: () {},
+              child: Text(
+                'Choose',
+              ),
+              color: Colors.greenAccent,
+              textColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(
+                  50.0,
+                ),
+              ),
+            ),
           ],
         ),
       ),

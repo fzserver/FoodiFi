@@ -17,9 +17,8 @@ class TitleLarge extends StatelessWidget {
           title,
           style: TextStyle(
             color: Colors.black,
-            fontSize: 40.0,
-            letterSpacing: 2.0,
-            fontWeight: FontWeight.bold,
+            fontSize: 30.0,
+            fontWeight: FontWeight.w400,
           ),
         ),
         if (icon != null)

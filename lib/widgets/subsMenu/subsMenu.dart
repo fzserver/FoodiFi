@@ -11,10 +11,8 @@ class SubsMenu extends StatelessWidget {
       children: <Widget>[
         MenuItem(
           menu: SubMenu(
-            title: 'Address',
-            subTitle: 'Ensure your harvesting address',
-            iconColor: profile_info_address,
-            icon: Icons.location_on,
+            title: '3 Days',
+            subTitle: '\u20B9 50/meal',
           ),
         ),
         SizedBox(
@@ -22,10 +20,8 @@ class SubsMenu extends StatelessWidget {
         ),
         MenuItem(
           menu: SubMenu(
-            title: 'Privacy',
-            subTitle: 'System permission change',
-            iconColor: profile_info_privacy,
-            icon: Icons.lock,
+            title: '7 Days',
+            subTitle: '\u20B9 60/meal',
           ),
         ),
         SizedBox(
@@ -33,10 +29,8 @@ class SubsMenu extends StatelessWidget {
         ),
         MenuItem(
           menu: SubMenu(
-            title: 'General',
-            subTitle: 'Basic functional settings',
-            iconColor: profile_info_general,
-            icon: Icons.layers,
+            title: '14 Days',
+            subTitle: '\u20B9 70/meal',
           ),
         ),
         SizedBox(
@@ -44,10 +38,8 @@ class SubsMenu extends StatelessWidget {
         ),
         MenuItem(
           menu: SubMenu(
-            title: 'Notification',
-            subTitle: 'Take over the news in time',
-            iconColor: profile_info_notification,
-            icon: Icons.notifications,
+            title: '28 Days',
+            subTitle: '\u20B9 80/meal',
           ),
         ),
       ],

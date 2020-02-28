@@ -183,39 +183,6 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
                   height: 3,
                 ),
                 DateWidget(),
-
-                new Divider(
-                  color: Colors.grey,
-                  height: 3,
-                ),
-                Container(
-                  margin: const EdgeInsets.all( 3.0),
-                  height:  100,
-
-                  child: Container(
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      physics: BouncingScrollPhysics(),
-                      itemCount: photos.length,
-                      itemBuilder: (context, index) => Container(
-                          padding: const EdgeInsets.all(
-                            15.0,
-                          ),
-                          child:           Container(
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(5.0),
-                                topRight: Radius.circular(5.0),
-                              ),
-                              child: CachedNetworkImage(
-                                imageUrl: photos[index],
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          )),
-                    ),
-                  ),
-                ),
                 SizedBox(
                     height: 80,
                     child: Center(

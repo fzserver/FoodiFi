@@ -2,6 +2,7 @@ import 'dart:async';
 
 
 import 'package:flutter/material.dart';
+import 'package:foodifi/pages/subscriptionpage.dart';
 
 
 import '../phone/phone.dart';
@@ -23,9 +24,9 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
   }
   final List<Widget> _children = [
     new UserHomePage(),
-    new Welcome(),
+    new SubscriptionPage(),
   //  new Favourite(),
-    new Phone()
+    new Favourite()
   ];
   @override
   void initState() {

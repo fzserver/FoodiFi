@@ -246,19 +246,18 @@ class _LoginState extends State<Login> {
                           onPressed: () async {
                             // GoogleServices().signOutGoogle();
                             GoogleServices().signInWithGoogle().then(
-                              (val) async {
+                                  (val) async {
                                 if (val != false) {
                                   FirebaseUser user = val;
                                   // print('Name = ' + user.displayName.toString());
                                   SharedPreferences prefs =
-                                      await SharedPreferences.getInstance();
+                                  await SharedPreferences.getInstance();
                                   prefs.setString('fireuid', user.uid);
-                                  prefs.setString('firename', user.displayName);
+                                  prefs.setString('name', user.displayName);
                                   FoodiFi.name = user.displayName;
                                   FoodiFi.uid = user.uid;
                                   Navigator.of(context).pushNamedAndRemoveUntil(
-                                      FFRoutes.userhome,
-                                      (Route<dynamic> route) => false);
+                                      FFRoutes.mainpage, (Route<dynamic> route) => false);
                                 } else {
                                   print('Not Signed In');
                                 }

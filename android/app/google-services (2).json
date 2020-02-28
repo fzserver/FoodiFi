@@ -15,19 +15,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "1094186690575-gfvobkjr1ojaqsbmdd36dlg6dbkr6eld.apps.googleusercontent.com",
+          "client_id": "1094186690575-71ue4ng1rdjuj402uccm3m67qk6d4d7i.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.foodifi.foodifi",
-            "certificate_hash": "9f85a1e438943d366e99f60d517477762d2be4a0"
-          }
-        },
-        {
-          "client_id": "1094186690575-p1r632p2ssrf1dfuf5upb1aolmqn40os.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.foodifi.foodifi",
-            "certificate_hash": "5d884206b1156fda18c0a3de6134467e1d350d1e"
+            "certificate_hash": "c430ccbca22ddf12fc256db1520bf19f9c6e3f4e"
           }
         },
         {

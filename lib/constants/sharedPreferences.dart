@@ -13,6 +13,7 @@ class LocalStorageService {
     if (_preferences == null) {
       _preferences = await SharedPreferences.getInstance();
     }
+    
 
     return _instance;
   }

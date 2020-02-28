@@ -9,7 +9,7 @@ version: 1.0.0+1
 
 # Dart SDK Version
 environment:
-  sdk: ">=2.2.0 <3.0.0"
+  sdk: ">=2.2.2 <3.0.0"
 
 # App Packages from pub.dev for both debug & release mode & for both Android & iOS
 dependencies:
@@ -21,7 +21,7 @@ dependencies:
   connectivity: ^0.4.6+2
   rxdart: ^0.22.6
   flutter_spinkit: ^4.1.1+1
-  shared_preferences: ^0.5.6+1
+  shared_preferences: ^0.5.6+2
   cached_network_image: ^2.0.0
   package_info: ^0.4.0+13
   splashscreen: ^1.2.0

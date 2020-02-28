@@ -249,11 +249,12 @@ class _LoginState extends State<Login> {
                               (val) async {
                                 if (val != false) {
                                   FirebaseUser user = val;
-                                  // print('Name = ' + user.displayName.toString());
-                                  SharedPreferences prefs =
-                                      await SharedPreferences.getInstance();
-                                  prefs.setString('fireuid', user.uid);
-                                  prefs.setString('firename', user.displayName);
+                                  // print(
+                                  //     'Name = ' + user.displayName.toString());
+
+                                  // FoodiFi.prefs.setString('fireuid', user.uid);
+                                  // FoodiFi.prefs
+                                  //     .setString('firename', user.displayName);
                                   FoodiFi.name = user.displayName;
                                   FoodiFi.uid = user.uid;
                                   Navigator.of(context).pushNamed(

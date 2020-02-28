@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:foodifi/pages/subscriptionpage.dart';
+import 'package:foodifi/pages/userProfile/userProfile.dart';
 
 import '../phone/phone.dart';
 import '../welcome/welcome.dart';
@@ -23,10 +24,10 @@ class _MainPageState extends State<MainPage>
   }
 
   final List<Widget> _children = [
-    new UserHomePage(),
-    new SubscriptionPage(),
-    //  new Favourite(),
-    new Favourite()
+    UserHomePage(),
+    SubscriptionPage(),
+    UserProfile(),
+    Favourite()
   ];
   @override
   void initState() {

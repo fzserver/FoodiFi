@@ -7,13 +7,14 @@ import 'package:foodifi/pages/userhome/userhome.dart';
 import 'package:foodifi/widgets/boxbubble.dart';
 import 'package:intl/intl.dart';
 
-class DateWidget extends StatefulWidget{
+class DateWidget extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => DateWidgetState();
 }
 
-class DateWidgetState extends State<DateWidget> with SingleTickerProviderStateMixin{
-  int _itemCount =6;
+class DateWidgetState extends State<DateWidget>
+    with SingleTickerProviderStateMixin {
+  int _itemCount = 6;
   var indexChosen;
 
   int photoIndex = 0;
@@ -33,7 +34,6 @@ class DateWidgetState extends State<DateWidget> with SingleTickerProviderStateMi
   @override
   void initState() {
     super.initState();
-
   }
 
   @override
@@ -56,8 +56,7 @@ class DateWidgetState extends State<DateWidget> with SingleTickerProviderStateMi
               DateTime date = new DateTime(_date.year, _date.month, _date.day);
 
               return GestureDetector(
-                child:
-                Container(
+                child: Container(
                   /* color: indexChosen != null && indexChosen == index
                   ? Colors.red
                   : Colors.white,*/
@@ -73,32 +72,28 @@ class DateWidgetState extends State<DateWidget> with SingleTickerProviderStateMi
                           .format(date)
                           .toUpperCase(), // Month
                     ),*/
-                        Text(DateFormat("E", Intl.defaultLocale)
-                            .format(date)
-                            .toUpperCase(), // WeekDay
+                        Text(
+                          DateFormat("E", Intl.defaultLocale)
+                              .format(date)
+                              .toUpperCase(), // WeekDay
                         ),
                         Text(date.day.toString()),
                       ],
                     ),
                   ),
                 ),
-
                 onTap: () {
-
                   if (index != indexChosen) {
                     setState(() {
                       indexChosen = index;
-
 
                       _pageController.animateToPage(
                         indexChosen,
                         duration: Duration(milliseconds: 400),
                         curve: Curves.easeIn,
                       );
-
                     });
                   }
-
                 },
               );
             },
@@ -115,55 +110,51 @@ class DateWidgetState extends State<DateWidget> with SingleTickerProviderStateMi
             physics: BouncingScrollPhysics(),
             children: List.generate(
               photos.length,
-                  (index) => featured(photos, index),
+              (index) => featured(photos, index),
             ),
           ),
         ),
-
       ],
     );
   }
 
-
   boxDecoration(int index) {
-    return indexChosen != null && indexChosen == index ?  BoxDecoration(
-      shape: BoxShape.rectangle,
-      color: Colors.orange,
-      border: (indexChosen != null && indexChosen == index)
-          ? Border.all(width: 2.0, color: Colors.orange)
-          : Border.all(color: Colors.white),
-    ): null;
+    return indexChosen != null && indexChosen == index
+        ? BoxDecoration(
+            shape: BoxShape.rectangle,
+            color: Colors.orange,
+            border: (indexChosen != null && indexChosen == index)
+                ? Border.all(width: 2.0, color: Colors.orange)
+                : Border.all(color: Colors.white),
+          )
+        : null;
   }
 
-
   Widget featured(List<String> photos, int index) => Stack(
-    children: <Widget>[
-      Container(
-        margin: const EdgeInsets.all( 4.0),
-        padding: EdgeInsets.all(20),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(5.0),
-            topRight: Radius.circular(5.0),
-          ),
-          image: DecorationImage(
-            image: NetworkImage(
-              photos[index],
+        children: <Widget>[
+          Container(
+            margin: const EdgeInsets.all(4.0),
+            padding: EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(5.0),
+                topRight: Radius.circular(5.0),
+              ),
+              image: DecorationImage(
+                image: NetworkImage(
+                  photos[index],
+                ),
+                fit: BoxFit.cover,
+              ),
             ),
-            fit: BoxFit.cover,
+            height: 150.0,
           ),
-        ),
-        height: 150.0,
-      ),
-      Container(
-        margin: const EdgeInsets.all( 4.0),
-        padding: EdgeInsets.all(20),
-        height: 150.0,
-        color: Colors.black.withOpacity(.1),
-      ),
-
-    ],
-  );
-
-
+          Container(
+            margin: const EdgeInsets.all(4.0),
+            padding: EdgeInsets.all(20),
+            height: 150.0,
+            color: Colors.black.withOpacity(.1),
+          ),
+        ],
+      );
 }

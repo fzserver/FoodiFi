@@ -21,11 +21,10 @@ import '../../constants/FoodiFi.dart';
 class ConfigPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return ChangeNotifierProvider(
       create: (_) => UserRepository.instance(),
       child: MaterialApp(
-        title:  FoodiFi.appName,
+        title: FoodiFi.appName,
         debugShowCheckedModeBanner: false,
         // debugShowMaterialGrid: true,
         // showSemanticsDebugger: true,
@@ -42,13 +41,13 @@ class ConfigPage extends StatelessWidget {
           ),
           disabledColor: Colors.grey,
           primaryTextTheme: Theme.of(context).textTheme.apply(
-            fontFamily: 'foodifi',
-            bodyColor: FiColors.textColor,
-            displayColor: FiColors.textColor,
-          ),
+                fontFamily: 'foodifi',
+                bodyColor: FiColors.textColor,
+                displayColor: FiColors.textColor,
+              ),
           brightness: Brightness.light,
         ),
-      //  initialRoute: FFRoutes.login,
+        //  initialRoute: FFRoutes.login,
         routes: {
           FFRoutes.mainpage: (BuildContext context) => MainPage(),
           FFRoutes.onboard: (BuildContext context) => Onboarding(),
@@ -59,28 +58,28 @@ class ConfigPage extends StatelessWidget {
           FFRoutes.restaurant: (BuildContext context) => Restaurant(),
           FFRoutes.restaurantMenu: (BuildContext context) => RestaurantMenu(),
         },
-        home:  Consumer(
-            builder: (context, UserRepository user, _) {
-              switch (user.status) {
-                case Status.Uninitialized:
-                  return Container(
-                    child: (Text("")),
-                  );
-                  break;
-                case Status.Authenticated://or
-                  return MainPage();
-                  break;
-                case Status.Authenticating:
-                  return Container(
-                    child: Text(""),
-                  );
-                  break;
-                case Status.Unauthenticated:
-                  return Login();
-              }
-            }),),
-
-
+        home: Consumer(
+          builder: (context, UserRepository user, _) {
+            switch (user.status) {
+              case Status.Uninitialized:
+                return Container(
+                  child: Text(""),
+                );
+                break;
+              case Status.Authenticated:
+                return MainPage();
+                break;
+              case Status.Authenticating:
+                return Container(
+                  child: Text(""),
+                );
+                break;
+              case Status.Unauthenticated:
+                return Login();
+            }
+          },
+        ),
+      ),
     );
   }
 }
@@ -168,7 +167,7 @@ class _ConfigPageState extends State<ConfigPage> {
             ),
           ),
         ),
-      );*//*
+      );*/ /*
 
 
   // checkUserLoggedIn() async {

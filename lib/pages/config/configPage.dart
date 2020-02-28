@@ -4,6 +4,7 @@ import 'package:foodifi/constants/FoodiFi.dart';
 import 'package:foodifi/constants/colors.dart';
 import 'package:foodifi/pages/favourite.dart';
 import 'package:foodifi/pages/home/homePage.dart';
+import 'package:foodifi/pages/subscriptions/subscriptions.dart';
 import 'package:foodifi/pages/userhome/mainpage.dart';
 import 'package:foodifi/pages/onboarding/onboarding.dart';
 import 'package:foodifi/pages/phone/phone.dart';
@@ -83,6 +84,8 @@ class _ConfigPageState extends State<ConfigPage> {
                 FFRoutes.restaurant: (BuildContext context) => Restaurant(),
                 FFRoutes.restaurantMenu: (BuildContext context) =>
                     RestaurantMenu(),
+                FFRoutes.subscriptions: (BuildContext context) =>
+                    Subscriptions(),
               },
             ),
           ),

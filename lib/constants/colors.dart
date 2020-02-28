@@ -9,6 +9,7 @@ class FiColors {
   static const Color bgColor = Color(
       0xFF78d840); //TODO: Color(0xFF00E676); Color(0xFF6ADF26); Color(0xFF78D840); Color(0xFF0C2009); Color(0xFF53AE33);
   static const Color blackColor = Color(0xFF010101);
+  static const Color profile_info_background = Color(0xFF3775FD);
 
   //* Dark Theme
   static const Color darkAppColor = Color(0xFF2C3E50);

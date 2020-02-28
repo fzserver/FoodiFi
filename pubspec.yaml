@@ -9,7 +9,7 @@ version: 1.0.0+1
 
 # Dart SDK Version
 environment:
-  sdk: ">=2.2.0 <3.0.0"
+  sdk: ">=2.2.2 <3.0.0"
 
 # App Packages from pub.dev for both debug & release mode & for both Android & iOS
 dependencies:

@@ -9,4 +9,5 @@ class FFRoutes {
   static const String restaurant = '/restaurant';
   static const String restaurantMenu = '/restaurantmenu';
   static const String userprofile = '/profile';
+  static const String subscriptions = '/subscriptions';
 }

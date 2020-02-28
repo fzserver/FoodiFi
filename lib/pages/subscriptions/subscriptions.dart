@@ -28,8 +28,18 @@ class _SubscriptionsState extends State<Subscriptions> {
               Flexible(
                 child: SubsMenu(),
               ),
+              SizedBox(
+                height: 20.0,
+              ),
+              timeChips(),
             ],
           ),
         ),
       );
+}
+
+Widget timeChips() {
+  return Container(
+    child: Text('Timings'),
+  );
 }

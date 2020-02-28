@@ -68,7 +68,7 @@ class ConfigPage extends StatelessWidget {
                   );
                   break;
                 case Status.Authenticated://or
-                  return UserHomePage();
+                  return MainPage();
                   break;
                 case Status.Authenticating:
                   return Container(

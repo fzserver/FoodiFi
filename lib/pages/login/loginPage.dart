@@ -256,9 +256,9 @@ class _LoginState extends State<Login> {
                                   prefs.setString('firename', user.displayName);
                                   FoodiFi.name = user.displayName;
                                   FoodiFi.uid = user.uid;
-                                  Navigator.of(context).pushNamedAndRemoveUntil(
-                                      FFRoutes.userhome,
-                                      (Route<dynamic> route) => false);
+                                  Navigator.of(context).pushNamed(
+                                    FFRoutes.userhome,
+                                  );
                                 } else {
                                   print('Not Signed In');
                                 }

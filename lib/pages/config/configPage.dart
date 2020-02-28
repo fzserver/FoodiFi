@@ -25,6 +25,7 @@ class ConfigPage extends StatefulWidget {
 
 class _ConfigPageState extends State<ConfigPage> {
   SharedPreferences prefs;
+  bool loggedIn = false;
 
   @override
   void initState() {
@@ -34,6 +35,8 @@ class _ConfigPageState extends State<ConfigPage> {
 
   void setPrefs() async {
     prefs = await SharedPreferences.getInstance();
+    loggedIn = prefs.containsKey('fireuid');
+    print(loggedIn.toString());
   }
 
   @override
@@ -72,8 +75,7 @@ class _ConfigPageState extends State<ConfigPage> {
                     ),
                 brightness: Brightness.light,
               ),
-              initialRoute: FFRoutes.userhome,
-              // user.loginSkipped ? FFRoutes.userhome : FFRoutes.login,
+              initialRoute: loggedIn ? FFRoutes.userhome : FFRoutes.login,
               routes: {
                 FFRoutes.mainpage: (BuildContext context) => MainPage(),
                 FFRoutes.onboard: (BuildContext context) => Onboarding(),

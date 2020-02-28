@@ -4,6 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:foodifi/widgets/datewidget.dart';
+import 'package:foodifi/widgets/userreviewwidget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class RestaurantMenu extends StatefulWidget {
@@ -25,154 +26,58 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        /*  body: CustomScrollView(
-      slivers: <Widget>[
-        SliverAppBar(
-          expandedHeight: 200.0,
-          floating: true,
-          pinned: true,
-          flexibleSpace: FlexibleSpaceBar(
-            title: Text(
-              'Mc Donalds',
-            ),
-            titlePadding: EdgeInsetsDirectional.only(
-              start: 60.0,
-              bottom: 17.0,
-            ),
-            background: Stack(
-              children: <Widget>[
-                Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage(
-                        'https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9',
-                      ),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
+        body: CustomScrollView(
+          slivers: <Widget>[
+            SliverAppBar(
+              expandedHeight: 200.0,
+              floating: true,
+              pinned: true,
+              flexibleSpace: FlexibleSpaceBar(
+                title: Text(
+                  'Mc Donalds',
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Colors.transparent,
-                        Colors.black.withOpacity(0.5),
-                      ],
-                      tileMode: TileMode.repeated,
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-         SliverFixedExtentList(
-          itemExtent: 150.0,
-          delegate:
-          new SliverChildBuilderDelegate((context, index) => new ListTile(
-            title: new Text("List $index"),
-          )),
-        ),
-
-        SliverFillRemaining(
-
-            child: Column(
-                children: <Widget>[
-                  MaterialButton(onPressed: () {},child: Text('Order Food Online'),color: Colors.orange,textColor: Colors.white, minWidth: MediaQuery.of(context).size.width, height: 50.0),
-                  SizedBox(height: 20,),
-
-                  Divider(
-                    color: Colors.grey,
-                    height: 3,
-                  ),
-                  DateWidget(),
-
-                  new Divider(
-                    color: Colors.grey,
-                    height: 3,
-                  ),
-                  Container(
-                    margin: const EdgeInsets.all( 3.0),
-                    height:  MediaQuery.of(context).size.height,
-                    width: MediaQuery.of(context).size.width,
-                    child: Container(
-                      child: ListView.builder(
-                        scrollDirection: Axis.vertical,
-                        physics: BouncingScrollPhysics(),
-                        itemCount: photos.length,
-                        itemBuilder: (context, index) => Container(
-                            padding: const EdgeInsets.all(
-                               15.0,
-                            ),
-                            child:           Container(
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(5.0),
-                                  topRight: Radius.circular(5.0),
-                                ),
-                                child: CachedNetworkImage(
-                                  imageUrl: photos[index],
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            )),
-                      ),
-                    ),
-                  ),*/
-        body: NestedScrollView(
-          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-            return <Widget>[
-              SliverAppBar(
-                expandedHeight: 200.0,
-                floating: true,
-                pinned: true,
-                flexibleSpace: FlexibleSpaceBar(
-                  title: Text(
-                    'Mc Donalds',
-                  ),
-                  titlePadding: EdgeInsetsDirectional.only(
-                    start: 60.0,
-                    bottom: 17.0,
-                  ),
-                  background: Stack(
-                    children: <Widget>[
-                      Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: NetworkImage(
-                              'https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9',
-                            ),
-                            fit: BoxFit.cover,
+                titlePadding: EdgeInsetsDirectional.only(
+                  start: 60.0,
+                  bottom: 17.0,
+                ),
+                background: Stack(
+                  children: <Widget>[
+                    Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            'https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9',
                           ),
+                          fit: BoxFit.cover,
                         ),
                       ),
-                      Container(
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              Colors.transparent,
-                              Colors.black.withOpacity(0.5),
-                            ],
-                            tileMode: TileMode.repeated,
-                          ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Colors.transparent,
+                            Colors.black.withOpacity(0.5),
+                          ],
+                          tileMode: TileMode.repeated,
                         ),
-                      )
-                    ],
-                  ),
+                      ),
+                    )
+                  ],
                 ),
               ),
-            ];
-          },
-          body: Column(
-            mainAxisSize: MainAxisSize.max,
-            verticalDirection: VerticalDirection.down,
-            children: <Widget>[
-              SingleChildScrollView(
-                scrollDirection: Axis.vertical,
+            ),
+            // SliverFixedExtentList(
+            //   itemExtent: 150.0,
+            //   delegate: new SliverChildBuilderDelegate(
+            //       (context, index) => new ListTile(
+            //             title: new Text("List $index"),
+            //           )),
+            // ),
+            SliverToBoxAdapter(
+              child: Container(
                 child: Column(
                   children: <Widget>[
                     MaterialButton(
@@ -185,11 +90,115 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
                     SizedBox(
                       height: 20,
                     ),
-                    Divider(
-                      color: Colors.grey,
-                      height: 3,
-                    ),
-                    DateWidget(),
+
+                    // Divider(
+                    //   color: Colors.grey,
+                    //   height: 3,
+                    // ),
+                    // DateWidget(),
+
+                    // Divider(
+                    //   color: Colors.grey,
+                    //   height: 3,
+                    // ),
+                    // Container(
+                    //   margin: const EdgeInsets.all(3.0),
+                    //   height: MediaQuery.of(context).size.height,
+                    //   width: MediaQuery.of(context).size.width,
+                    //   child: Container(
+                    //     child: ListView.builder(
+                    //       scrollDirection: Axis.horizontal,
+                    //       physics: BouncingScrollPhysics(),
+                    //       itemCount: photos.length,
+                    //       itemBuilder: (context, index) => Container(
+                    //         padding: const EdgeInsets.all(
+                    //           15.0,
+                    //         ),
+                    //         child: Container(
+                    //           child: ClipRRect(
+                    //             borderRadius: BorderRadius.only(
+                    //               topLeft: Radius.circular(5.0),
+                    //               topRight: Radius.circular(5.0),
+                    //             ),
+                    //             child: CachedNetworkImage(
+                    //               imageUrl: photos[index],
+                    //               fit: BoxFit.cover,
+                    //             ),
+                    //           ),
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
+                    // body: NestedScrollView(
+                    //   headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+                    //     return <Widget>[
+                    //       SliverAppBar(
+                    //         expandedHeight: 200.0,
+                    //         floating: true,
+                    //         pinned: true,
+                    //         flexibleSpace: FlexibleSpaceBar(
+                    //           title: Text(
+                    //             'Mc Donalds',
+                    //           ),
+                    //           titlePadding: EdgeInsetsDirectional.only(
+                    //             start: 60.0,
+                    //             bottom: 17.0,
+                    //           ),
+                    //           background: Stack(
+                    //             children: <Widget>[
+                    //               Container(
+                    //                 decoration: BoxDecoration(
+                    //                   image: DecorationImage(
+                    //                     image: NetworkImage(
+                    //                       'https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9',
+                    //                     ),
+                    //                     fit: BoxFit.cover,
+                    //                   ),
+                    //                 ),
+                    //               ),
+                    //               Container(
+                    //                 decoration: BoxDecoration(
+                    //                   gradient: LinearGradient(
+                    //                     begin: Alignment.topCenter,
+                    //                     end: Alignment.bottomCenter,
+                    //                     colors: [
+                    //                       Colors.transparent,
+                    //                       Colors.black.withOpacity(0.5),
+                    //                     ],
+                    //                     tileMode: TileMode.repeated,
+                    //                   ),
+                    //                 ),
+                    //               )
+                    //             ],
+                    //           ),
+                    //         ),
+                    //       ),
+                    //     ];
+                    //   },
+                    //   body: Column(
+                    //     mainAxisSize: MainAxisSize.max,
+                    //     verticalDirection: VerticalDirection.down,
+                    //     children: <Widget>[
+                    //       SingleChildScrollView(
+                    //         scrollDirection: Axis.vertical,
+                    //         child: Column(
+                    //           children: <Widget>[
+                    //             MaterialButton(
+                    //                 onPressed: () {},
+                    //                 child: Text('Order Food Online'),
+                    //                 color: Colors.orange,
+                    //                 textColor: Colors.white,
+                    //                 minWidth: MediaQuery.of(context).size.width,
+                    //                 height: 50.0),
+                    //             SizedBox(
+                    //               height: 20,
+                    //             ),
+                    //             Divider(
+                    //               color: Colors.grey,
+                    //               height: 3,
+                    //             ),
+                    //             DateWidget(),
                     SizedBox(
                         height: 80,
                         child: Center(
@@ -444,13 +453,13 @@ class _RestaurantMenuState extends State<RestaurantMenu> {
                         ],
                       ),
                     ),
-                    /*  UserReviewWidget()*/
-                    /* RestaurantDetail(),*/
+                    UserReviewWidget()
+                    // RestaurantDetail(),
                   ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       );
 }

@@ -20,6 +20,7 @@ class _LoginState extends State<Login> {
   // TextEditingController _password;
   // final _formKey = GlobalKey<FormState>();
   // final _key = GlobalKey<ScaffoldState>();
+  final StreamController loadScreenController = StreamController<bool>();
 
   @override
   void initState() {
@@ -30,6 +31,7 @@ class _LoginState extends State<Login> {
 
   @override
   void dispose() {
+    loadScreenController.close();
     super.dispose();
   }
 
@@ -248,15 +250,16 @@ class _LoginState extends State<Login> {
                             GoogleServices().signInWithGoogle().then(
                               (val) async {
                                 if (val != false) {
+                                  loadScreenController.sink.add(false);
                                   FirebaseUser user = val;
                                   // print(
                                   //     'Name = ' + user.displayName.toString());
-
-                                  // FoodiFi.prefs.setString('fireuid', user.uid);
-                                  // FoodiFi.prefs
-                                  //     .setString('firename', user.displayName);
+                                  // SharedPreferences prefs = await SharedPreferences.getInstance();
+                                  // prefs.setString('uid', user.uid);
+                                  // prefs.setString('name', user.displayName);
                                   FoodiFi.name = user.displayName;
                                   FoodiFi.uid = user.uid;
+                                  loadScreenController.sink.add(true);
                                   Navigator.of(context).pushNamed(
                                     FFRoutes.userhome,
                                   );

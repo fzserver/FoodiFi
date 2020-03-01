@@ -14,8 +14,7 @@ class UserRepository with ChangeNotifier {
   String error = '';
 
   UserRepository.instance()
-      : _auth = FirebaseAuth.instance,
-        _googleSignIn = GoogleSignIn() {
+      : _auth = FirebaseAuth.instance, _googleSignIn = GoogleSignIn() {
     _auth.onAuthStateChanged.listen(_onAuthStateChanged);
     _checkIsLoginSkipped();
   }

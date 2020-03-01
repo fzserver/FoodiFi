@@ -24,6 +24,7 @@ class _UserProfileState extends State<UserProfile> {
           child: ListView.separated(
             itemBuilder: (BuildContext context, int index) => ListTile(
               title: Text(accInfos[index]),
+
             ),
             separatorBuilder: (BuildContext context, int i) => Divider(),
             itemCount: accInfos.length,

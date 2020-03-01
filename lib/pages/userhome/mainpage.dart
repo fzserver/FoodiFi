@@ -3,6 +3,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:foodifi/pages/subscriptionpage.dart';
+import 'package:foodifi/pages/userProfile/userProfile.dart';
 
 
 import '../phone/phone.dart';
@@ -26,7 +27,7 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
     new UserHomePage(),
     new SubscriptionPage(),
   //  new Favourite(),
-    new Favourite()
+    new UserProfile()
   ];
   @override
   void initState() {

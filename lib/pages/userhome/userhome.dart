@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:foodifi/constants/FFRoutes.dart';
-import 'package:foodifi/constants/FoodiFi.dart';
 import 'package:foodifi/widgets/searchwidget.dart';
 
 class UserHomePage extends StatefulWidget {
@@ -13,8 +12,6 @@ class UserHomePage extends StatefulWidget {
 
 class _UserHomePageState extends State<UserHomePage>
     with SingleTickerProviderStateMixin {
-  // var fireEmail = LocalStorageService().getFromDisk('fireuser');
-
   int photoIndex = 0;
   PageController _pageController = PageController(
     initialPage: 0,

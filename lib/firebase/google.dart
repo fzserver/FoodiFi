@@ -36,6 +36,52 @@ class GoogleServices {
     }
   }
 
+  Future<dynamic> signIn(String email, String password) async {
+    try{
+    AuthResult result = await _auth.signInWithEmailAndPassword(
+        email: email, password: password);
+    FirebaseUser user = result.user;
+    return user.uid;
+
+  } on Exception catch (e) {
+  print(e);
+  return false;
+  } catch (e) {
+  print(e);
+  return false;
+  }
+  }
+
+  Future<dynamic> signUp(String email, String password) async {
+    try{
+    AuthResult result = await _auth.createUserWithEmailAndPassword(
+        email: email, password: password);
+    FirebaseUser user = result.user;
+    return user.uid;
+    } on Exception catch (e) {
+      print(e);
+      return false;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
+  Future<void> sendEmailVerification() async {
+    FirebaseUser user = await _auth.currentUser();
+    user.sendEmailVerification();
+  }
+
+  Future<bool> isEmailVerified() async {
+    FirebaseUser user = await _auth.currentUser();
+    return user.isEmailVerified;
+  }
+
+  Future<FirebaseUser> getCurrentUser() async {
+    FirebaseUser user = await _auth.currentUser();
+    return user;
+  }
+
   void signOutGoogle() async {
     await _googleSignIn.signOut();
     print("User Sign Out");

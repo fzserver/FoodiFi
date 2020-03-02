@@ -37,27 +37,26 @@ class GoogleServices {
   }
 
   Future<dynamic> signIn(String email, String password) async {
-    try{
-    AuthResult result = await _auth.signInWithEmailAndPassword(
-        email: email, password: password);
-    FirebaseUser user = result.user;
-    return user.uid;
-
-  } on Exception catch (e) {
-  print(e);
-  return false;
-  } catch (e) {
-  print(e);
-  return false;
-  }
+    try {
+      AuthResult result = await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
+      FirebaseUser user = result.user;
+      return user.uid;
+    } on Exception catch (e) {
+      print(e);
+      return false;
+    } catch (e) {
+      print(e);
+      return false;
+    }
   }
 
   Future<dynamic> signUp(String email, String password) async {
-    try{
-    AuthResult result = await _auth.createUserWithEmailAndPassword(
-        email: email, password: password);
-    FirebaseUser user = result.user;
-    return user.uid;
+    try {
+      AuthResult result = await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+      FirebaseUser user = result.user;
+      return user.uid;
     } on Exception catch (e) {
       print(e);
       return false;

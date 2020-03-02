@@ -42,7 +42,6 @@ class _UserProfileState extends State<UserProfile> {
                 }
               },
               title: Text(accInfos[index]),
-
             ),
             separatorBuilder: (BuildContext context, int i) => Divider(),
             itemCount: accInfos.length,

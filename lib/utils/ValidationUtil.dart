@@ -1,7 +1,6 @@
- import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
 class ValidationUtils {
-
   static String emailValidator(String value) {
     if (value.isEmpty) {
       // The form is empty
@@ -26,20 +25,20 @@ class ValidationUtils {
     return 'Email is not valid';
   }
 
- static String passwordValidator(String password){
-    if(password.isEmpty){
+  static String passwordValidator(String password) {
+    if (password.isEmpty) {
       return 'Password can\'t be empty';
-    }else if(password.length < 6){
+    } else if (password.length < 6) {
       return 'Password should be minimum 6 charactes';
     }
     return null;
   }
 
- static  void createSnackBar(BuildContext context,String message) {
-    final snackBar = new SnackBar(content: new Text(message),
-        backgroundColor: Colors.red);
+  static void createSnackBar(BuildContext context, String message) {
+    final snackBar =
+        new SnackBar(content: new Text(message), backgroundColor: Colors.red);
 
     // Find the Scaffold in the Widget tree and use it to show a SnackBar!
     Scaffold.of(context).showSnackBar(snackBar);
   }
- }
+}

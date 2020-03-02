@@ -28,17 +28,13 @@ class _LoginState extends State<Login> {
   bool _isLoading;
   String userId = "";
 
-
   bool validateAndSave() {
     final form = _formKey.currentState;
     SystemChannels.textInput.invokeMethod('TextInput.hide');
     if (form.validate()) {
-
       form.save();
       return true;
-    }else{
-
-    }
+    } else {}
     return false;
   }
 
@@ -50,28 +46,24 @@ class _LoginState extends State<Login> {
     });
     if (validateAndSave()) {
       GoogleServices().signIn(_email, _password).then(
-            (val) async {
+        (val) async {
           if (val != false) {
             FirebaseUser user = val;
             FoodiFi.uid = user.uid;
-            Navigator.of(context)
-                .pushNamedAndRemoveUntil(
-                FFRoutes.mainpage,
-                    (Route<dynamic> route) => false);
+            Navigator.of(context).pushNamedAndRemoveUntil(
+                FFRoutes.mainpage, (Route<dynamic> route) => false);
           } else {
-            _scaffoldKey.currentState.showSnackBar(
-                SnackBar(
-                  content: Text('Something went wrong'),
-                  duration: Duration(seconds: 3),
-                ));
+            _scaffoldKey.currentState.showSnackBar(SnackBar(
+              content: Text('Something went wrong'),
+              duration: Duration(seconds: 3),
+            ));
           }
         },
       );
       setState(() {
         _isLoading = false;
       });
-
-    }else{
+    } else {
       _isLoading = false;
     }
   }
@@ -90,7 +82,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
+        key: _scaffoldKey,
         body: Form(
           key: _formKey,
           child: Stack(
@@ -176,7 +168,8 @@ class _LoginState extends State<Login> {
                                 vertical: 16.0,
                               ),
                             ),
-                            validator: (value) => ValidationUtils.emailValidator(value),
+                            validator: (value) =>
+                                ValidationUtils.emailValidator(value),
                             onSaved: (value) => _email = value.trim(),
                           ),
                         ),
@@ -219,7 +212,8 @@ class _LoginState extends State<Login> {
                                 vertical: 16.0,
                               ),
                             ),
-                            validator: (value) => ValidationUtils.passwordValidator(value),
+                            validator: (value) =>
+                                ValidationUtils.passwordValidator(value),
                             onSaved: (value) => _password = value.trim(),
                           ),
                         ),
@@ -231,8 +225,7 @@ class _LoginState extends State<Login> {
                               vertical: 16.0,
                             ),
                             color: Colors.greenAccent,
-                            onPressed: () =>
-                                validateAndSubmit(),
+                            onPressed: () => validateAndSubmit(),
                             elevation: 11,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.all(
@@ -307,7 +300,7 @@ class _LoginState extends State<Login> {
                                 ),
                                 onPressed: () async {
                                   GoogleServices().signInWithGoogle().then(
-                                        (val) async {
+                                    (val) async {
                                       if (val != false) {
                                         FirebaseUser user = val;
                                         // print('Name = ' + user.displayName.toString());
@@ -319,8 +312,9 @@ class _LoginState extends State<Login> {
                                         FoodiFi.uid = user.uid;
                                         Navigator.of(context)
                                             .pushNamedAndRemoveUntil(
-                                            FFRoutes.mainpage,
-                                                (Route<dynamic> route) => false);
+                                                FFRoutes.mainpage,
+                                                (Route<dynamic> route) =>
+                                                    false);
                                       } else {
                                         print('Not Signed In');
                                       }
@@ -345,8 +339,8 @@ class _LoginState extends State<Login> {
                                 "Sign up",
                               ),
                               textColor: FiColors.bgColor,
-                              onPressed: () =>
-                                  Navigator.pushNamed(context, FFRoutes.welcome),
+                              onPressed: () => Navigator.pushNamed(
+                                  context, FFRoutes.welcome),
                             )
                           ],
                         )
@@ -357,7 +351,6 @@ class _LoginState extends State<Login> {
               ),
             ],
           ),
-        )
-    );
+        ));
   }
 }

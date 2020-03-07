@@ -1,8 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:foodifi/constants/sharedPreferences.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class GoogleServices {
+  final Firestore _firestore = Firestore.instance;
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = GoogleSignIn();
 
@@ -64,6 +66,19 @@ class GoogleServices {
       print(e);
       return false;
     }
+  }
+
+  Future<bool> checkEmailExist(String email) async {
+    final result = await _firestore
+        .collection('Users')
+        .where('email', isEqualTo: email)
+        .getDocuments();
+    if(result.documents.isEmpty){
+      return result.documents.isEmpty;
+    }else{
+      return result.documents.isNotEmpty;
+    }
+
   }
 
   Future<void> sendEmailVerification() async {

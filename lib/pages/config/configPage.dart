@@ -21,7 +21,8 @@ import '../../constants/FoodiFi.dart';
 class ConfigPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
+
+    return ChangeNotifierProvider<UserRepository>(
       create: (_) => UserRepository.instance(),
       child: MaterialApp(
         title: FoodiFi.appName,
@@ -41,10 +42,10 @@ class ConfigPage extends StatelessWidget {
           ),
           disabledColor: Colors.grey,
           primaryTextTheme: Theme.of(context).textTheme.apply(
-                fontFamily: 'foodifi',
-                bodyColor: FiColors.textColor,
-                displayColor: FiColors.textColor,
-              ),
+            fontFamily: 'foodifi',
+            bodyColor: FiColors.textColor,
+            displayColor: FiColors.textColor,
+          ),
           brightness: Brightness.light,
         ),
         //  initialRoute: FFRoutes.login,

@@ -4,7 +4,10 @@ import 'package:foodifi/constants/FFRoutes.dart';
 import 'package:foodifi/constants/FoodiFi.dart';
 import 'package:foodifi/constants/colors.dart';
 import 'package:foodifi/firebase/google.dart';
+import 'package:foodifi/providers/userRepository.dart';
+import 'package:foodifi/utils/SharedPrefs.dart';
 import 'package:foodifi/utils/ValidationUtil.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:wave/config.dart';
 import 'package:wave/wave.dart';
 
@@ -17,16 +20,14 @@ class _WelcomeState extends State<Welcome> {
   final _formKey = new GlobalKey<FormState>();
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
-  String _email;
-  String _password;
-  String _errorMessage;
+  String _email,_password, _fullname,_errorMessage;
+  FirebaseAuth _auth;
 
   bool _isSigInForm, _isGmailform;
   bool _isLoading;
   String userId = "";
 
   bool validateAndSave() {
-    SystemChannels.textInput.invokeMethod('TextInput.hide');
     final form = _formKey.currentState;
     if (form.validate()) {
       form.save();
@@ -35,38 +36,57 @@ class _WelcomeState extends State<Welcome> {
     return false;
   }
 
-  // Perform login or signup
+  // Perform signup
   void validateAndSubmit() async {
+    SystemChannels.textInput.invokeMethod('TextInput.hide');
     setState(() {
       _errorMessage = "";
       _isLoading = true;
     });
-    if (validateAndSave()) {
-      GoogleServices().signUp(_email, _password).then(
-        (val) async {
-          if (val != false) {
-            Navigator.of(context).pushNamedAndRemoveUntil(
-                FFRoutes.mainpage, (Route<dynamic> route) => false);
-          } else {
-            _scaffoldKey.currentState.showSnackBar(SnackBar(
-              content: Text('Something went wrong'),
-              duration: Duration(seconds: 3),
-            ));
-          }
-        },
-      );
-      setState(() {
-        _isLoading = false;
-      });
-    } else {
+    final valid = await GoogleServices().checkEmailExist(_email);
+    if (!valid) {
       _isLoading = false;
+
+      _scaffoldKey.currentState.showSnackBar(SnackBar(
+        content: Text('User Already Exist'),
+        duration: Duration(seconds: 3),
+      ));
+    } else {
+      if (validateAndSave()) {
+        UserRepository.instance().signUp(_fullname,_email, _password).then(
+              (val) async {
+                FirebaseUser user = val;
+            if (user != null && user.uid!=null) {
+              SharedPrefs.setUserName( user.uid).
+              setState(() {
+                _errorMessage = "";
+                _isLoading = false;
+              });
+              Navigator.of(context).pushNamedAndRemoveUntil(
+                  FFRoutes.mainpage, (Route<dynamic> route) => false);
+            } else {
+              setState(() {
+                _errorMessage = "";
+                _isLoading = false;
+              });
+              _scaffoldKey.currentState.showSnackBar(SnackBar(
+                content: Text('Something went wrong'),
+                duration: Duration(seconds: 3),
+              ));
+            }
+          },
+        );
+
+      } else {
+
+      }
     }
   }
 
   @override
   void initState() {
-    _errorMessage = "";
     _isLoading = false;
+    _errorMessage = "";
     _isSigInForm = true;
     super.initState();
   }
@@ -74,15 +94,8 @@ class _WelcomeState extends State<Welcome> {
   void resetForm() {
     _formKey.currentState.reset();
     _errorMessage = "";
-    _isLoading = false;
   }
 
-  void toggleFormMode() {
-    resetForm();
-    setState(() {
-      _isSigInForm = !_isSigInForm;
-    });
-  }
 
   @override
   void dispose() {
@@ -160,7 +173,7 @@ class _WelcomeState extends State<Welcome> {
                               Icons.check_circle,
                               color: Colors.black26,
                             ),
-                            hintText: "Username",
+                            hintText: "Full Name",
                             hintStyle: TextStyle(color: Colors.black26),
                             filled: true,
                             fillColor: Colors.white,
@@ -178,11 +191,11 @@ class _WelcomeState extends State<Welcome> {
                             ),
                           ),
                           validator: (value) =>
-                              ValidationUtils.emailValidator(value),
-                          onSaved: (value) => _email = value.trim(),
+                              ValidationUtils.validateName(value),
+                          onSaved: (value) => _fullname = value.trim(),
                         ),
                       ),
-                      /*  Card(
+                        Card(
                           margin: EdgeInsets.only(
                             left: 30,
                             right: 30,
@@ -196,7 +209,7 @@ class _WelcomeState extends State<Welcome> {
                               ),
                             ),
                           ),
-                          child: TextField(
+                          child: TextFormField(
                             decoration: InputDecoration(
                               prefixIcon: Icon(
                                 Icons.email,
@@ -221,8 +234,11 @@ class _WelcomeState extends State<Welcome> {
                                 vertical: 16.0,
                               ),
                             ),
+                            validator: (value) =>
+                                ValidationUtils.emailValidator(value),
+                            onSaved: (value) => _email = value.trim(),
                           ),
-                        ),*/
+                        ),
                       Card(
                         margin: EdgeInsets.only(
                           left: 30,
@@ -330,6 +346,7 @@ class _WelcomeState extends State<Welcome> {
                 ),
               ],
             ),
+            ValidationUtils.showCircularProgress(_isLoading),
           ],
         ),
       ));

@@ -7,8 +7,11 @@ import 'package:foodifi/constants/FFRoutes.dart';
 import 'package:foodifi/constants/FoodiFi.dart';
 import 'package:foodifi/constants/colors.dart';
 import 'package:foodifi/firebase/google.dart';
+import 'package:foodifi/providers/userRepository.dart';
 import 'package:foodifi/utils/DateUtils.dart';
+import 'package:foodifi/utils/SharedPrefs.dart';
 import 'package:foodifi/utils/ValidationUtil.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wave/config.dart';
 import 'package:wave/wave.dart';
@@ -30,7 +33,6 @@ class _LoginState extends State<Login> {
 
   bool validateAndSave() {
     final form = _formKey.currentState;
-    SystemChannels.textInput.invokeMethod('TextInput.hide');
     if (form.validate()) {
       form.save();
       return true;
@@ -40,19 +42,29 @@ class _LoginState extends State<Login> {
 
   // Perform login
   void validateAndSubmit() async {
+    SystemChannels.textInput.invokeMethod('TextInput.hide');
     setState(() {
       _errorMessage = "";
       _isLoading = true;
     });
     if (validateAndSave()) {
-      GoogleServices().signIn(_email, _password).then(
+      UserRepository.instance().signIn(_email, _password).then(
         (val) async {
-          if (val != false) {
-            FirebaseUser user = val;
+          FirebaseUser user = val;
+          if (user != null ) {
             FoodiFi.uid = user.uid;
+            SharedPrefs.setUserName( user.uid).
+            setState(() {
+              _errorMessage = "";
+              _isLoading = false;
+            });
             Navigator.of(context).pushNamedAndRemoveUntil(
                 FFRoutes.mainpage, (Route<dynamic> route) => false);
           } else {
+            setState(() {
+              _errorMessage = "";
+              _isLoading = false;
+            });
             _scaffoldKey.currentState.showSnackBar(SnackBar(
               content: Text('Something went wrong'),
               duration: Duration(seconds: 3),
@@ -81,6 +93,7 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
+    final userRepository = Provider.of<UserRepository>(context);
     return Scaffold(
         key: _scaffoldKey,
         body: Form(
@@ -299,24 +312,30 @@ class _LoginState extends State<Login> {
                                   ),
                                 ),
                                 onPressed: () async {
-                                  GoogleServices().signInWithGoogle().then(
+                                  userRepository.signInWithGoogle().then(
                                     (val) async {
-                                      if (val != false) {
-                                        FirebaseUser user = val;
-                                        // print('Name = ' + user.displayName.toString());
-                                        // SharedPreferences prefs =
-                                        //     await SharedPreferences.getInstance();
-                                        // prefs.setString('fireuid', user.uid);
-                                        // prefs.setString('name', user.displayName);
-                                        FoodiFi.name = user.displayName;
+                                      FirebaseUser user = val;
+                                      if (user != null) {
                                         FoodiFi.uid = user.uid;
+                                        SharedPrefs.setUserName( user.uid).
+                                        setState(() {
+                                          _errorMessage = "";
+                                          _isLoading = false;
+                                        });
                                         Navigator.of(context)
                                             .pushNamedAndRemoveUntil(
                                                 FFRoutes.mainpage,
                                                 (Route<dynamic> route) =>
                                                     false);
                                       } else {
-                                        print('Not Signed In');
+                                        setState(() {
+                                          _errorMessage = "";
+                                          _isLoading = false;
+                                        });
+                                        _scaffoldKey.currentState.showSnackBar(SnackBar(
+                                          content: Text('Something went wrong'),
+                                          duration: Duration(seconds: 3),
+                                        ));
                                       }
                                     },
                                   );
@@ -349,6 +368,7 @@ class _LoginState extends State<Login> {
                   )
                 ],
               ),
+              ValidationUtils.showCircularProgress(_isLoading),
             ],
           ),
         ));

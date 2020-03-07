@@ -41,4 +41,37 @@ class ValidationUtils {
     // Find the Scaffold in the Widget tree and use it to show a SnackBar!
     Scaffold.of(context).showSnackBar(snackBar);
   }
+
+  static String validateName(String value) {
+    if (value.isEmpty) {
+      return 'Name can\'t be empty';
+    } else if (value.length < 3) {
+      return 'Name should be minimum 3 charactes';
+    }
+
+   /* Pattern pattern = r"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$";
+    RegExp regex = new RegExp(pattern);
+    if (!regex.hasMatch(value))
+      return 'Please enter a name.';
+    else*/
+      return null;
+  }
+
+  static String validateNumber(String value) {
+    Pattern pattern = r'^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$';
+    RegExp regex = new RegExp(pattern);
+    if (!regex.hasMatch(value))
+      return 'Please enter a number.';
+    else
+      return null;
+  }
+ static Widget showCircularProgress(_isLoading) {
+    if (_isLoading) {
+      return Center(child: CircularProgressIndicator());
+    }
+    return Container(
+      height: 0.0,
+      width: 0.0,
+    );
+  }
 }

@@ -119,7 +119,7 @@ packages:
       name: coverage
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.13.6"
+    version: "0.13.8"
   crypto:
     dependency: transitive
     description:
@@ -182,14 +182,14 @@ packages:
       name: firebase_auth
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.15.4"
+    version: "0.15.5+2"
   firebase_auth_platform_interface:
     dependency: transitive
     description:
       name: firebase_auth_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.5"
+    version: "1.1.7"
   firebase_auth_web:
     dependency: transitive
     description:
@@ -198,19 +198,19 @@ packages:
     source: hosted
     version: "0.1.2"
   firebase_core:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: firebase_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.4"
+    version: "0.4.4+2"
   firebase_core_platform_interface:
     dependency: transitive
     description:
       name: firebase_core_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.2"
+    version: "1.0.4"
   firebase_core_web:
     dependency: transitive
     description:
@@ -231,7 +231,7 @@ packages:
       name: firebase_performance
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.1+5"
+    version: "0.3.1+7"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -480,7 +480,21 @@ packages:
       name: path_provider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.6.1"
+    version: "1.6.5"
+  path_provider_macos:
+    dependency: transitive
+    description:
+      name: path_provider_macos
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.4"
+  path_provider_platform_interface:
+    dependency: transitive
+    description:
+      name: path_provider_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   pedantic:
     dependency: transitive
     description:

@@ -8,8 +8,8 @@ import 'package:foodifi/services/connectionStatus.dart';*/
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:foodifi/utils/SharedPrefs.dart';
 
-import 'constants/sharedPreferences.dart';
 import 'pages/config/configPage.dart';
 import 'services/connectionStatus.dart';
 
@@ -29,7 +29,7 @@ void main() {
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
   // * Get Shared Preference Instance for whole app
-  LocalStorageService.getInstance();
+  SharedPrefs.getInstance();
 
   // Set `enableInDevMode` to true to see reports while in debug mode
   // This is only to be used for confirming that reports are being

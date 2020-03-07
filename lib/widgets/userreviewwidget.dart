@@ -149,21 +149,22 @@ class UserReviewWidget extends StatelessWidget {
                   physics: BouncingScrollPhysics(),
                   itemCount: photos.length,
                   itemBuilder: (context, index) => Container(
-                      padding: const EdgeInsets.only(
-                        right: 15.0,
-                      ),
-                      child: Container(
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(5.0),
-                            topRight: Radius.circular(5.0),
-                          ),
-                          child: CachedNetworkImage(
-                            imageUrl: photos[index],
-                            fit: BoxFit.cover,
-                          ),
+                    padding: const EdgeInsets.only(
+                      right: 15.0,
+                    ),
+                    child: Container(
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(5.0),
+                          topRight: Radius.circular(5.0),
                         ),
-                      )),
+                        child: CachedNetworkImage(
+                          imageUrl: photos[index],
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
               ),
             )

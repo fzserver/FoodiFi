@@ -14,6 +14,7 @@ class UserRepository with ChangeNotifier {
   FirebaseAuth _auth;
   FirebaseUser _user;
   GoogleSignIn _googleSignIn;
+  String name;
   Status _status = Status.Uninitialized;
   bool loginSkipped = false;
   String error = '';
@@ -27,6 +28,8 @@ class UserRepository with ChangeNotifier {
 
   Status get status => _status;
   FirebaseUser get user => _user;
+
+  String get userName => name;
 
   bool get isAuthenticated {
     return _user != null;
@@ -109,7 +112,7 @@ class UserRepository with ChangeNotifier {
     } catch (e) {
       print(e);
     }
-   // return Future.delayed(Duration.zero);
+    // return Future.delayed(Duration.zero);
   }
 
   Future<void> _onAuthStateChanged(FirebaseUser firebaseUser) async {
@@ -128,4 +131,26 @@ class UserRepository with ChangeNotifier {
       "user_id":user.uid, "email":user.email,});
   }
 
+  Future<String> setUserName(String uid) async{
+    try{
+    //  DocumentReference documentReference = await  Firestore.instance.collection("Users").document(uid);
+      await await  Firestore.instance.collection("Users").document(uid).get().then((datasnapshot) {
+        if (datasnapshot.exists) {
+          print(datasnapshot.data['user_name'].toString());
+          name = datasnapshot.data['user_name'].toString();
+          print(name);
+          notifyListeners();
+          return Future.delayed(Duration(seconds: 2), () => name);
+        } else {
+          print("No such user");
+        }
+      });
+    }catch(e){
+
+    }
+    return name;
+
+  }
+
 }
+

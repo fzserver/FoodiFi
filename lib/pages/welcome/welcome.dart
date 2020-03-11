@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:foodifi/constants/FFRoutes.dart';
 import 'package:foodifi/constants/FoodiFi.dart';
 import 'package:foodifi/constants/colors.dart';
+import 'package:foodifi/constants/sharedPreferences.dart';
 import 'package:foodifi/firebase/google.dart';
 import 'package:foodifi/providers/userRepository.dart';
 import 'package:foodifi/utils/SharedPrefs.dart';
@@ -57,7 +58,7 @@ class _WelcomeState extends State<Welcome> {
               (val) async {
                 FirebaseUser user = val;
             if (user != null && user.uid!=null) {
-              SharedPrefs.setUserName( user.uid).
+              UserRepository.instance().setUserName( user.uid);
               setState(() {
                 _errorMessage = "";
                 _isLoading = false;

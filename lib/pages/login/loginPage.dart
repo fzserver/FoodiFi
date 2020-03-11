@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:foodifi/constants/FFRoutes.dart';
 import 'package:foodifi/constants/FoodiFi.dart';
 import 'package:foodifi/constants/colors.dart';
+import 'package:foodifi/constants/sharedPreferences.dart';
 import 'package:foodifi/firebase/google.dart';
 import 'package:foodifi/providers/userRepository.dart';
 import 'package:foodifi/utils/DateUtils.dart';
@@ -53,7 +54,7 @@ class _LoginState extends State<Login> {
           FirebaseUser user = val;
           if (user != null ) {
             FoodiFi.uid = user.uid;
-            SharedPrefs.setUserName( user.uid).
+            UserRepository.instance().setUserName( user.uid);
             setState(() {
               _errorMessage = "";
               _isLoading = false;
@@ -72,9 +73,6 @@ class _LoginState extends State<Login> {
           }
         },
       );
-      setState(() {
-        _isLoading = false;
-      });
     } else {
       _isLoading = false;
     }
@@ -317,7 +315,7 @@ class _LoginState extends State<Login> {
                                       FirebaseUser user = val;
                                       if (user != null) {
                                         FoodiFi.uid = user.uid;
-                                        SharedPrefs.setUserName( user.uid).
+                                        UserRepository.instance().setUserName( user.uid);
                                         setState(() {
                                           _errorMessage = "";
                                           _isLoading = false;

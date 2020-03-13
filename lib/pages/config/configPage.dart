@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:foodifi/constants/FFRoutes.dart';
 import 'package:foodifi/constants/FoodiFi.dart';
 import 'package:foodifi/constants/colors.dart';
+import 'package:foodifi/pages/payment/checkout.dart';
 import 'package:foodifi/pages/favourite.dart';
 import 'package:foodifi/pages/home/homePage.dart';
 import 'package:foodifi/pages/login/loginPage.dart';
+import 'package:foodifi/pages/payment/payment.dart';
 import 'package:foodifi/pages/userhome/mainpage.dart';
 import 'package:foodifi/pages/onboarding/onboarding.dart';
 import 'package:foodifi/pages/phone/phone.dart';
@@ -58,6 +60,8 @@ class ConfigPage extends StatelessWidget {
           FFRoutes.userhome: (BuildContext context) => UserHomePage(),
           FFRoutes.restaurant: (BuildContext context) => Restaurant(),
           FFRoutes.restaurantMenu: (BuildContext context) => RestaurantMenu(),
+          FFRoutes.checkout: (BuildContext context) => CheckOut(),
+          FFRoutes.payment: (BuildContext context) => Payment(),
         },
         home: Consumer(
           builder: (context, UserRepository user, _) {

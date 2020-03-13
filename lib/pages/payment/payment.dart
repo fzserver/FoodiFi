@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:foodifi/constants/colors.dart';
 import 'package:foodifi/pages/payment/BottomSheetModel.dart';
 import 'package:foodifi/pages/payment/CurvedClipper.dart';
-import 'package:foodifi/pages/payment/paymentTypes.dart';
 
 class Payment extends StatefulWidget{
   @override

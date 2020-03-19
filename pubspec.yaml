@@ -46,7 +46,7 @@ dependencies:
   provider: ^4.0.4
   # Encrypt libs
   args: ^1.5.2
-  asn1lib: ^0.5.8
+  asn1lib: ^0.6.4
   clock: ^1.0.1
   collection: ^1.14.11
   crypto: ^2.1.2

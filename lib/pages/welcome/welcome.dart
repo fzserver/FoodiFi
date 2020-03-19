@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:foodifi/constants/FFRoutes.dart';
-import 'package:foodifi/constants/FoodiFi.dart';
 import 'package:foodifi/constants/colors.dart';
-import 'package:foodifi/constants/sharedPreferences.dart';
 import 'package:foodifi/firebase/google.dart';
 import 'package:foodifi/providers/userRepository.dart';
-import 'package:foodifi/utils/SharedPrefs.dart';
 import 'package:foodifi/utils/ValidationUtil.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:wave/config.dart';
@@ -21,7 +18,7 @@ class _WelcomeState extends State<Welcome> {
   final _formKey = new GlobalKey<FormState>();
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
-  String _email,_password, _fullname,_errorMessage;
+  String _email, _password, _fullname, _errorMessage;
   FirebaseAuth _auth;
 
   bool _isSigInForm, _isGmailform;
@@ -54,11 +51,11 @@ class _WelcomeState extends State<Welcome> {
       ));
     } else {
       if (validateAndSave()) {
-        UserRepository.instance().signUp(_fullname,_email, _password).then(
-              (val) async {
-                FirebaseUser user = val;
-            if (user != null && user.uid!=null) {
-              UserRepository.instance().setUserName( user.uid);
+        UserRepository.instance().signUp(_fullname, _email, _password).then(
+          (val) async {
+            FirebaseUser user = val;
+            if (user != null && user.uid != null) {
+              UserRepository.instance().setUserName(user.uid);
               setState(() {
                 _errorMessage = "";
                 _isLoading = false;
@@ -77,10 +74,7 @@ class _WelcomeState extends State<Welcome> {
             }
           },
         );
-
-      } else {
-
-      }
+      } else {}
     }
   }
 
@@ -96,7 +90,6 @@ class _WelcomeState extends State<Welcome> {
     _formKey.currentState.reset();
     _errorMessage = "";
   }
-
 
   @override
   void dispose() {
@@ -196,50 +189,50 @@ class _WelcomeState extends State<Welcome> {
                           onSaved: (value) => _fullname = value.trim(),
                         ),
                       ),
-                        Card(
-                          margin: EdgeInsets.only(
-                            left: 30,
-                            right: 30,
-                            top: 20,
-                          ),
-                          elevation: 11,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(
-                                40,
-                              ),
+                      Card(
+                        margin: EdgeInsets.only(
+                          left: 30,
+                          right: 30,
+                          top: 20,
+                        ),
+                        elevation: 11,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(
+                              40,
                             ),
-                          ),
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              prefixIcon: Icon(
-                                Icons.email,
-                                color: Colors.black26,
-                              ),
-                              hintText: "Email",
-                              hintStyle: TextStyle(
-                                color: Colors.black26,
-                              ),
-                              filled: true,
-                              fillColor: Colors.white,
-                              border: OutlineInputBorder(
-                                borderSide: BorderSide.none,
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(
-                                    40.0,
-                                  ),
-                                ),
-                              ),
-                              contentPadding: EdgeInsets.symmetric(
-                                horizontal: 20.0,
-                                vertical: 16.0,
-                              ),
-                            ),
-                            validator: (value) =>
-                                ValidationUtils.emailValidator(value),
-                            onSaved: (value) => _email = value.trim(),
                           ),
                         ),
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(
+                              Icons.email,
+                              color: Colors.black26,
+                            ),
+                            hintText: "Email",
+                            hintStyle: TextStyle(
+                              color: Colors.black26,
+                            ),
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(
+                                  40.0,
+                                ),
+                              ),
+                            ),
+                            contentPadding: EdgeInsets.symmetric(
+                              horizontal: 20.0,
+                              vertical: 16.0,
+                            ),
+                          ),
+                          validator: (value) =>
+                              ValidationUtils.emailValidator(value),
+                          onSaved: (value) => _email = value.trim(),
+                        ),
+                      ),
                       Card(
                         margin: EdgeInsets.only(
                           left: 30,

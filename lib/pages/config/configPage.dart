@@ -3,7 +3,6 @@ import 'package:foodifi/constants/FFRoutes.dart';
 import 'package:foodifi/constants/FoodiFi.dart';
 import 'package:foodifi/constants/colors.dart';
 import 'package:foodifi/pages/payment/checkout.dart';
-import 'package:foodifi/pages/favourite.dart';
 import 'package:foodifi/pages/home/homePage.dart';
 import 'package:foodifi/pages/login/loginPage.dart';
 import 'package:foodifi/pages/payment/payment.dart';
@@ -16,14 +15,12 @@ import 'package:foodifi/pages/userhome/userhome.dart';
 import 'package:foodifi/pages/welcome/welcome.dart';
 import 'package:foodifi/providers/userRepository.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../constants/FoodiFi.dart';
 
 class ConfigPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return ChangeNotifierProvider<UserRepository>(
       create: (_) => UserRepository.instance(),
       child: MaterialApp(
@@ -44,10 +41,10 @@ class ConfigPage extends StatelessWidget {
           ),
           disabledColor: Colors.grey,
           primaryTextTheme: Theme.of(context).textTheme.apply(
-            fontFamily: 'foodifi',
-            bodyColor: FiColors.textColor,
-            displayColor: FiColors.textColor,
-          ),
+                fontFamily: 'foodifi',
+                bodyColor: FiColors.textColor,
+                displayColor: FiColors.textColor,
+              ),
           brightness: Brightness.light,
         ),
         //  initialRoute: FFRoutes.login,

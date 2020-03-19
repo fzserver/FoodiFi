@@ -1,11 +1,7 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:foodifi/pages/subscriptionpage.dart';
 import 'package:foodifi/pages/userProfile/userProfile.dart';
 
-import '../phone/phone.dart';
-import '../welcome/welcome.dart';
 import '../favourite.dart';
 import 'userhome.dart';
 

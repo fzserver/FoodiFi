@@ -1,9 +1,6 @@
-import 'dart:collection';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:foodifi/utils/SharedPrefs.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -18,10 +15,11 @@ class UserRepository with ChangeNotifier {
   Status _status = Status.Uninitialized;
   bool loginSkipped = false;
   String error = '';
-  var result ;
+  var result;
 
   UserRepository.instance()
-      : _auth = FirebaseAuth.instance, _googleSignIn = GoogleSignIn() {
+      : _auth = FirebaseAuth.instance,
+        _googleSignIn = GoogleSignIn() {
     _auth.onAuthStateChanged.listen(_onAuthStateChanged);
     _checkIsLoginSkipped();
   }
@@ -33,7 +31,6 @@ class UserRepository with ChangeNotifier {
 
   bool get isAuthenticated {
     return _user != null;
-
   }
 
   void _checkIsLoginSkipped() async {
@@ -45,7 +42,8 @@ class UserRepository with ChangeNotifier {
 
   Future<FirebaseUser> signIn(String email, String password) async {
     try {
-      AuthResult result = await _auth.signInWithEmailAndPassword(email: email, password: password);
+      AuthResult result = await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
       _user = result.user;
       _status = Status.Authenticated;
       notifyListeners();
@@ -60,12 +58,13 @@ class UserRepository with ChangeNotifier {
     }
   }
 
-  Future<FirebaseUser> signUp(String _fullname,String email, String password) async {
+  Future<FirebaseUser> signUp(
+      String _fullname, String email, String password) async {
     try {
-
-      AuthResult result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      AuthResult result = await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
       _user = result.user;
-      addToFirestore(_user,_fullname);
+      addToFirestore(_user, _fullname);
       notifyListeners();
       _status = Status.Authenticated;
       return _user;
@@ -82,16 +81,20 @@ class UserRepository with ChangeNotifier {
   Future<dynamic> signInWithGoogle() async {
     try {
       final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
-      final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
-      final AuthCredential credential = GoogleAuthProvider.getCredential(accessToken: googleAuth.accessToken, idToken: googleAuth.idToken,);
-      final AuthResult result  = await _auth.signInWithCredential(credential);
+      final GoogleSignInAuthentication googleAuth =
+          await googleUser.authentication;
+      final AuthCredential credential = GoogleAuthProvider.getCredential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+      final AuthResult result = await _auth.signInWithCredential(credential);
       _user = result.user;
       assert(user.email != null);
       assert(user.displayName != null);
       assert(!user.isAnonymous);
       assert(await user.getIdToken() != null);
 
-      addToFirestore(user,null);
+      addToFirestore(user, null);
       _status = Status.Authenticated;
       notifyListeners();
       return _user;
@@ -102,8 +105,8 @@ class UserRepository with ChangeNotifier {
       return null;
     }
   }
-  Future<void> signOut() async {
 
+  Future<void> signOut() async {
     try {
       await _auth.signOut();
       await _googleSignIn.signOut();
@@ -126,15 +129,22 @@ class UserRepository with ChangeNotifier {
   }
 
   Future<void> addToFirestore(FirebaseUser user, String fullname) async {
-    String user_name = fullname!=null? fullname: user.displayName;
-    await _firestore.collection("Users").document(user.uid).setData({"user_name": user_name,
-      "user_id":user.uid, "email":user.email,});
+    String user_name = fullname != null ? fullname : user.displayName;
+    await _firestore.collection("Users").document(user.uid).setData({
+      "user_name": user_name,
+      "user_id": user.uid,
+      "email": user.email,
+    });
   }
 
-  Future<String> setUserName(String uid) async{
-    try{
-    //  DocumentReference documentReference = await  Firestore.instance.collection("Users").document(uid);
-      await await  Firestore.instance.collection("Users").document(uid).get().then((datasnapshot) {
+  Future<String> setUserName(String uid) async {
+    try {
+      //  DocumentReference documentReference = await  Firestore.instance.collection("Users").document(uid);
+      await Firestore.instance
+          .collection("Users")
+          .document(uid)
+          .get()
+          .then((datasnapshot) {
         if (datasnapshot.exists) {
           print(datasnapshot.data['user_name'].toString());
           name = datasnapshot.data['user_name'].toString();
@@ -145,12 +155,7 @@ class UserRepository with ChangeNotifier {
           print("No such user");
         }
       });
-    }catch(e){
-
-    }
+    } catch (e) {}
     return name;
-
   }
-
 }
-

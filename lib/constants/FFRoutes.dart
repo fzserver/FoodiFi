@@ -12,5 +12,4 @@ class FFRoutes {
   static const String subscriptions = '/subscriptions';
   static const String checkout = '/checkout';
   static const String payment = '/payment';
-
 }

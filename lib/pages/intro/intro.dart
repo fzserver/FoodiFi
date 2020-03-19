@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:foodifi/constants/FFRoutes.dart';
-import 'package:foodifi/constants/FoodiFi.dart';
 import 'package:foodifi/constants/colors.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 

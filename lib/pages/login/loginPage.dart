@@ -1,19 +1,12 @@
-import 'dart:async';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:foodifi/constants/FFRoutes.dart';
 import 'package:foodifi/constants/FoodiFi.dart';
 import 'package:foodifi/constants/colors.dart';
-import 'package:foodifi/constants/sharedPreferences.dart';
-import 'package:foodifi/firebase/google.dart';
 import 'package:foodifi/providers/userRepository.dart';
-import 'package:foodifi/utils/DateUtils.dart';
-import 'package:foodifi/utils/SharedPrefs.dart';
 import 'package:foodifi/utils/ValidationUtil.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wave/config.dart';
 import 'package:wave/wave.dart';
 
@@ -52,9 +45,9 @@ class _LoginState extends State<Login> {
       UserRepository.instance().signIn(_email, _password).then(
         (val) async {
           FirebaseUser user = val;
-          if (user != null ) {
+          if (user != null) {
             FoodiFi.uid = user.uid;
-            UserRepository.instance().setUserName( user.uid);
+            UserRepository.instance().setUserName(user.uid);
             setState(() {
               _errorMessage = "";
               _isLoading = false;
@@ -315,7 +308,8 @@ class _LoginState extends State<Login> {
                                       FirebaseUser user = val;
                                       if (user != null) {
                                         FoodiFi.uid = user.uid;
-                                        UserRepository.instance().setUserName( user.uid);
+                                        UserRepository.instance()
+                                            .setUserName(user.uid);
                                         setState(() {
                                           _errorMessage = "";
                                           _isLoading = false;
@@ -330,7 +324,8 @@ class _LoginState extends State<Login> {
                                           _errorMessage = "";
                                           _isLoading = false;
                                         });
-                                        _scaffoldKey.currentState.showSnackBar(SnackBar(
+                                        _scaffoldKey.currentState
+                                            .showSnackBar(SnackBar(
                                           content: Text('Something went wrong'),
                                           duration: Duration(seconds: 3),
                                         ));

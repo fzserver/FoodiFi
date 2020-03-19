@@ -7,35 +7,35 @@ FoodiFi a Food delivery app.
 # Flutter Packages used by the app
 
 ```yaml
-cupertino_icons: ^0.1.2
-dio: ^3.0.8
-sqflite: ^1.2.0
-connectivity: ^0.4.6+2
-rxdart: ^0.22.6
-flutter_spinkit: ^4.1.1+1
-shared_preferences: ^0.5.6+1
-cached_network_image: ^2.0.0
-package_info: ^0.4.0+13
-splashscreen: ^1.2.0
-introduction_screen: ^1.0.7
-flutter_custom_clippers: ^1.1.0
-polygon_clipper: ^1.0.2
-quick_actions: ^0.4.0+1
-wave: ^0.0.8
-firebase_performance: ^0.3.1+5
-cloud_firestore: ^0.13.2+3
-firebase_auth: ^0.15.4
-firebase_analytics: ^5.0.11
-firebase_crashlytics: ^0.1.3
-google_sign_in: ^4.1.1
-provider: ^4.0.4
+cupertino_icons:
+dio:
+sqflite:
+connectivity:
+rxdart:
+flutter_spinkit:
+shared_preferences:
+cached_network_image:
+package_info:
+splashscreen:
+introduction_screen:
+flutter_custom_clippers:
+polygon_clipper:
+quick_actions:
+wave:
+firebase_performance:
+cloud_firestore:
+firebase_auth:
+firebase_analytics:
+firebase_crashlytics:
+google_sign_in:
+provider:
 # Encrypt libs
-args: ^1.5.2
-asn1lib: ^0.5.8
-clock: ^1.0.1
-collection: ^1.14.11
-crypto: ^2.1.2
-pointycastle: ^1.0.1
+args:
+asn1lib:
+clock:
+collection:
+crypto:
+pointycastle:
 ```
 
 # Executables

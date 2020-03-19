@@ -29,6 +29,20 @@ firebase_analytics: ^5.0.11
 firebase_crashlytics: ^0.1.3
 google_sign_in: ^4.1.1
 provider: ^4.0.4
+# Encrypt libs
+args: ^1.5.2
+asn1lib: ^0.5.8
+clock: ^1.0.1
+collection: ^1.14.11
+crypto: ^2.1.2
+pointycastle: ^1.0.1
+```
+
+# Executables
+
+```yaml
+executables:
+  secure-random:
 ```
 
 # Dart version
